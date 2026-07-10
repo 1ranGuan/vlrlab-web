@@ -1,0 +1,79 @@
+---
+/**
+ * 页脚（老站 .footer + .copy）：友情链接 + 联系我们 + 快速链接 + 版权。navy 底色。
+ */
+import { getCollection } from 'astro:content';
+import { site } from '@data/site';
+import { footerQuickLinks } from '@data/footer';
+import { withBase, copyright } from '@lib/utils';
+import { useTranslations, type Locale } from '@/i18n/ui';
+import SmartLink from '@components/ui/SmartLink.astro';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = 'zh' } = Astro.props;
+const t = useTranslations(locale);
+
+const friendLinks = (await getCollection('friendLinks')).map((e) => e.data);
+---
+
+<footer class="mt-auto bg-navy text-white/85">
+  <div class="container-vlr grid gap-10 py-12 md:grid-cols-[1.4fr_1fr_auto]">
+    <!-- 友情链接 -->
+    <div>
+      <h3 class="mb-4 text-base font-semibold text-white">{t('footer.friendLinks')}</h3>
+      <ul class="grid grid-cols-2 gap-x-6 gap-y-2 text-sm sm:grid-cols-3">
+        {
+          friendLinks.map((l) => (
+            <li>
+              <SmartLink
+                href={l.url}
+                class="text-white/75 transition-colors hover:text-white hover:underline underline-offset-4"
+              >
+                {l.label}
+              </SmartLink>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <!-- 联系我们 -->
+    <div>
+      <h3 class="mb-4 text-base font-semibold text-white">{t('footer.contact')}</h3>
+      <ul class="space-y-2 text-sm">
+        {
+          site.emails.map((e) => (
+            <li>
+              <a href={e.href} class="text-white/75 transition-colors hover:text-white">
+                {e.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <!-- 快速链接 -->
+    <div class="flex flex-col gap-3 md:items-end">
+      {
+        footerQuickLinks.map((q) => (
+          <a
+            href={withBase(q.href)}
+            class="inline-flex w-full items-center justify-center rounded border border-white/25 px-8 py-2.5 text-sm transition-colors hover:border-white hover:bg-white/10 md:w-auto"
+          >
+            {q.label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- 版权 -->
+  <div class="border-t border-white/10 py-4">
+    <div class="container-vlr text-center text-xs text-white/60">
+      <p>{copyright()}</p>
+    </div>
+  </div>
+</footer>

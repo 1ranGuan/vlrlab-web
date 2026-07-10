@@ -1,0 +1,58 @@
+---
+/**
+ * 内页页头横幅：navy 底 + 标题 + crimson 下划线 + 可选副标题/面包屑。
+ * 所有子页面复用，保持与首页板块标题一致的品牌语言。
+ */
+interface Props {
+  title: string;
+  subtitle?: string;
+  /** 面包屑：[{label, href}]，最后一项通常无 href */
+  breadcrumbs?: { label: string; href?: string }[];
+}
+
+const { title, subtitle, breadcrumbs } = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-gradient-to-br from-navy to-navy-700">
+  <!-- 装饰性光圈，呼应 logo -->
+  <div
+    class="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full border border-white/5"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute -right-4 top-6 h-40 w-40 rounded-full border border-white/5"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="container-vlr relative py-14 md:py-20">
+    {
+      breadcrumbs && breadcrumbs.length > 0 && (
+        <nav aria-label="breadcrumb" class="mb-4 text-sm text-white/60">
+          <ol class="flex flex-wrap items-center gap-1.5">
+            {breadcrumbs.map((c, i) => (
+              <li class="flex items-center gap-1.5">
+                {c.href ? (
+                  <a href={c.href} class="transition-colors hover:text-white">
+                    {c.label}
+                  </a>
+                ) : (
+                  <span class="text-white/90">{c.label}</span>
+                )}
+                {i < breadcrumbs.length - 1 && <span aria-hidden="true">/</span>}
+              </li>
+            ))}
+          </ol>
+        </nav>
+      )
+    }
+    <h1 class="relative inline-block pb-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
+      {title}
+      <span
+        class="absolute bottom-0 left-0 h-[3px] w-12 rounded-full bg-crimson"
+        aria-hidden="true"></span>
+    </h1>
+    {subtitle && <p class="mt-4 max-w-2xl text-white/70">{subtitle}</p>}
+  </div>
+</section>

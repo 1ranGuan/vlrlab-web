@@ -1,0 +1,26 @@
+---
+/**
+ * 板块外壳：1400px 居中容器 + 垂直间距。可选背景（浅灰 / navy 条带）。
+ */
+interface Props {
+  /** 背景样式 */
+  variant?: 'default' | 'muted' | 'navy';
+  /** 额外 class（作用在最外层 section 上） */
+  class?: string;
+  id?: string;
+}
+
+const { variant = 'default', class: className = '', id } = Astro.props;
+
+const bg = {
+  default: '',
+  muted: 'bg-muted',
+  navy: 'bg-navy text-white',
+}[variant];
+---
+
+<section id={id} class:list={['py-14 md:py-20', bg, className]}>
+  <div class="container-vlr">
+    <slot />
+  </div>
+</section>

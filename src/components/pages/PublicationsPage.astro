@@ -1,0 +1,37 @@
+---
+/**
+ * 论文列表页正文（中英共用）。locale 决定页头语言；论文标题等内容保持原样。
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PageHeader from '@components/ui/PageHeader.astro';
+import PaperCard from '@components/ui/PaperCard.astro';
+import { getAllPublications } from '@lib/collections';
+import { withBase } from '@lib/utils';
+import { useTranslations, type Locale } from '@/i18n/ui';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = 'zh' } = Astro.props;
+const t = useTranslations(locale);
+const homeHref = locale === 'en' ? withBase('/en/') : withBase('/');
+
+const papers = await getAllPublications();
+---
+
+<BaseLayout title={t('page.publications.title')} description={t('page.publications.subtitle')}>
+  <PageHeader
+    title={t('page.publications.title')}
+    subtitle={t('page.publications.subtitle')}
+    breadcrumbs={[
+      { label: t('common.home'), href: homeHref },
+      { label: t('page.publications.title') },
+    ]}
+  />
+
+  <div class="container-vlr py-12 md:py-16">
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {papers.map((paper) => <PaperCard paper={paper} />)}
+    </div>
+  </div>
+</BaseLayout>

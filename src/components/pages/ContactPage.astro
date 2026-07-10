@@ -1,0 +1,62 @@
+---
+/**
+ * 联系我们（中英共用）。地址与邮箱为通用信息。
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PageHeader from '@components/ui/PageHeader.astro';
+import { site } from '@data/site';
+import { withBase } from '@lib/utils';
+import { useTranslations, type Locale } from '@/i18n/ui';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = 'zh' } = Astro.props;
+const t = useTranslations(locale);
+const homeHref = locale === 'en' ? withBase('/en/') : withBase('/');
+const en = locale === 'en';
+
+const addrLabel = en ? 'Address' : '地址';
+const emailLabel = en ? 'Email' : '邮箱';
+const addr1 = en
+  ? 'East 216, South Building 1, Huazhong University of Science and Technology'
+  : '华中科技大学 南一楼东 216';
+const addr2 = en ? 'No. 1037 Luoyu Road, Hongshan District, Wuhan, Hubei, China' : '湖北省武汉市洪山区珞喻路 1037 号';
+const zip = en ? 'Postal code: 430074' : '邮编：430074';
+---
+
+<BaseLayout title={t('page.contact.title')}>
+  <PageHeader
+    title={t('page.contact.title')}
+    breadcrumbs={[{ label: t('common.home'), href: homeHref }, { label: t('page.contact.title') }]}
+  />
+  <div class="container-vlr py-12 md:py-16">
+    <div class="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
+      <div class="rounded-xl bg-white p-7 shadow-[var(--shadow-card)] ring-1 ring-black/[0.04]">
+        <h2 class="mb-4 flex items-center gap-2 text-lg font-bold text-navy">
+          <span class="inline-block h-5 w-1 rounded-full bg-crimson" aria-hidden="true"></span>
+          {addrLabel}
+        </h2>
+        <p class="leading-relaxed text-ink">{addr1}<br />{addr2}</p>
+        <p class="mt-2 text-sm text-ink-soft">{zip}</p>
+      </div>
+      <div class="rounded-xl bg-white p-7 shadow-[var(--shadow-card)] ring-1 ring-black/[0.04]">
+        <h2 class="mb-4 flex items-center gap-2 text-lg font-bold text-navy">
+          <span class="inline-block h-5 w-1 rounded-full bg-crimson" aria-hidden="true"></span>
+          {emailLabel}
+        </h2>
+        <ul class="space-y-2">
+          {
+            site.emails.map((e) => (
+              <li>
+                <a href={e.href} class="text-ink transition-colors hover:text-crimson">
+                  {e.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

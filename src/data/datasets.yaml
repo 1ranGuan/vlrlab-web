@@ -1,0 +1,11 @@
+# 开源资料：数据集 / 代码 / 模型。新增：加一条记录即可。
+# kind: dataset | code | model；order 从小到大。
+- id: siw-10
+  name: SIW-10 Dataset
+  description: >-
+    SIW-10 dataset from the ICDAR 2015 paper "Automatic Script Identification in
+    the Wild". A benchmark for script identification in natural scene images.
+  venue: ICDAR 2015
+  kind: dataset
+  url: https://www.icloud.com/iclouddrive/04cCS_s_DbG_49V_wN5exRVPQ#SIW-10
+  order: 1

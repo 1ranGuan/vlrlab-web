@@ -1,0 +1,21 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import HeroCarousel from '@components/home/HeroCarousel.astro';
+import PaperCarousel from '@components/home/PaperCarousel.astro';
+import AnnouncementList from '@components/home/AnnouncementList.astro';
+import NewsSection from '@components/home/NewsSection.astro';
+import CollaboratorCarousel from '@components/home/CollaboratorCarousel.astro';
+
+const locale = 'en';
+---
+
+<BaseLayout
+  title="Vision and Learning Representation Group"
+  description="Vision and Learning Representation Group (VLR) at Huazhong University of Science and Technology — computer vision, document image intelligence, autonomous driving perception, remote sensing, video, industrial and medical vision."
+>
+  <HeroCarousel />
+  <PaperCarousel locale={locale} />
+  <AnnouncementList locale={locale} />
+  <NewsSection locale={locale} />
+  <CollaboratorCarousel locale={locale} />
+</BaseLayout>

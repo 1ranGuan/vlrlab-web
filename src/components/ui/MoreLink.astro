@@ -1,0 +1,33 @@
+---
+/**
+ * 「更多 →」链接。内部路径自动过 withBase；外链加 target/rel。
+ */
+import { withBase, isExternal } from '@lib/utils';
+
+interface Props {
+  href: string;
+  label?: string;
+  inverted?: boolean;
+  class?: string;
+}
+
+const { href, label = '更多', inverted = false, class: className = '' } = Astro.props;
+const external = isExternal(href);
+const finalHref = external ? href : withBase(href);
+---
+
+<a
+  href={finalHref}
+  class:list={[
+    'group inline-flex items-center gap-1 text-sm font-semibold transition-colors',
+    inverted ? 'text-white/90 hover:text-white' : 'text-crimson hover:text-crimson-600',
+    className,
+  ]}
+  {...external ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
+>
+  {label}
+  <span
+    class="transition-transform duration-200 ease-out group-hover:translate-x-1"
+    aria-hidden="true">→</span
+  >
+</a>

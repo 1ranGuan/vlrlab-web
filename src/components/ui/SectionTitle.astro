@@ -1,0 +1,38 @@
+---
+/**
+ * 板块标题：居中大标题 + crimson 下划线，右侧可选「更多」链接。
+ * 对应老站居中 navy 大标题（.news_title）。
+ */
+import MoreLink from './MoreLink.astro';
+
+interface Props {
+  title: string;
+  moreHref?: string;
+  moreLabel?: string;
+  /** navy 背景板块里用白色标题 */
+  inverted?: boolean;
+}
+
+const { title, moreHref, moreLabel = '更多', inverted = false } = Astro.props;
+---
+
+<div class="relative mb-10 flex items-center justify-center md:mb-12">
+  <h2
+    class:list={[
+      'relative inline-block pb-4 text-[26px] font-bold tracking-tight md:text-[34px]',
+      inverted ? 'text-white' : 'text-navy',
+    ]}
+  >
+    {title}
+    <span
+      class="absolute bottom-0 left-1/2 h-[3px] w-10 -translate-x-1/2 rounded-full bg-crimson"
+      aria-hidden="true"></span>
+  </h2>
+  {
+    moreHref && (
+      <div class="absolute right-0 top-1/2 hidden -translate-y-1/2 md:block">
+        <MoreLink href={moreHref} label={moreLabel} inverted={inverted} />
+      </div>
+    )
+  }
+</div>

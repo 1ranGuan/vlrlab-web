@@ -1,0 +1,63 @@
+---
+/**
+ * 桌面主导航。下拉子菜单纯 CSS（:hover + :focus-within），无需 JS，键盘可达。
+ */
+import { nav, type NavItem } from '@data/nav';
+import { withBase, isExternal } from '@lib/utils';
+
+interface Props {
+  items?: NavItem[];
+}
+const { items = nav } = Astro.props;
+
+const link = (href: string) => (isExternal(href) ? href : withBase(href));
+const currentPath = Astro.url.pathname;
+const isActive = (href: string) => href === '/' ? currentPath === withBase('/') : currentPath.startsWith(withBase(href));
+---
+
+<nav aria-label="主导航" class="hidden lg:block">
+  <ul class="flex items-stretch">
+    {
+      items.map((item) => (
+        <li class="group relative">
+          <a
+            href={link(item.href)}
+            class:list={[
+              'flex h-full items-center px-4 py-3 text-[15px] font-medium text-white/90 transition-colors hover:text-white',
+              isActive(item.href) && 'text-white',
+            ]}
+            {...(isExternal(item.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+          >
+            {item.label}
+            {/* 激活/悬浮下划线 */}
+            <span
+              class:list={[
+                'absolute inset-x-3 bottom-1.5 h-0.5 origin-left scale-x-0 rounded-full bg-crimson transition-transform duration-200 ease-out group-hover:scale-x-100',
+                isActive(item.href) && 'scale-x-100',
+              ]}
+              aria-hidden="true"
+            />
+          </a>
+
+          {item.children && (
+            <ul
+              class="invisible absolute left-1/2 top-full z-50 min-w-[168px] -translate-x-1/2 rounded-b-md bg-white py-2 opacity-0 shadow-xl transition-all duration-200 ease-out group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
+            >
+              {item.children.map((child) => (
+                <li>
+                  <a
+                    href={link(child.href)}
+                    class="block px-5 py-2 text-center text-sm text-ink transition-colors hover:bg-muted hover:font-semibold hover:text-crimson"
+                    {...(isExternal(child.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  >
+                    {child.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</nav>

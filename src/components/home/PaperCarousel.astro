@@ -1,0 +1,86 @@
+---
+/**
+ * 最新论文横向轮播（老站 mySwiper）：CSS scroll-snap 轨道 + 箭头，卡片全量进 DOM。
+ * 无 JS 也能滑动，箭头是渐进增强。
+ */
+import Section from '@components/ui/Section.astro';
+import SectionTitle from '@components/ui/SectionTitle.astro';
+import PaperCard from '@components/ui/PaperCard.astro';
+import { getHomepagePublications } from '@lib/collections';
+import { useTranslations, type Locale } from '@/i18n/ui';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = 'zh' } = Astro.props;
+const t = useTranslations(locale);
+
+const papers = await getHomepagePublications();
+---
+
+<Section>
+  <SectionTitle title={t('home.latestPapers')} moreHref="/publications" moreLabel={t('home.morePapers')} />
+
+  <div class="relative" data-rail>
+    <div
+      class="scrollbar-hide -mx-2 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth px-2 pb-4"
+      data-rail-track
+    >
+      {
+        papers.map((paper) => (
+          <div class="w-[78%] shrink-0 snap-start sm:w-[46%] md:w-[31%] lg:w-[23%]">
+            <PaperCard paper={paper} />
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- 箭头（桌面） -->
+    <button
+      class="absolute -left-3 top-[38%] z-10 hidden h-11 w-11 items-center justify-center rounded-full border border-line bg-white text-navy shadow-md transition-colors hover:bg-navy hover:text-white lg:flex"
+      aria-label="上一组"
+      data-rail-prev
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button
+      class="absolute -right-3 top-[38%] z-10 hidden h-11 w-11 items-center justify-center rounded-full border border-line bg-white text-navy shadow-md transition-colors hover:bg-navy hover:text-white lg:flex"
+      aria-label="下一组"
+      data-rail-next
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+  </div>
+
+  <div class="mt-2 text-center md:hidden">
+    <a href="/publications" class="text-sm font-semibold text-crimson">更多论文 →</a>
+  </div>
+</Section>
+
+<style>
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<script>
+  function initRails() {
+    document.querySelectorAll<HTMLElement>('[data-rail]').forEach((rail) => {
+      const track = rail.querySelector<HTMLElement>('[data-rail-track]');
+      if (!track) return;
+      const step = () => Math.round(track.clientWidth * 0.8);
+      rail.querySelector('[data-rail-prev]')?.addEventListener('click', () =>
+        track.scrollBy({ left: -step(), behavior: 'smooth' })
+      );
+      rail.querySelector('[data-rail-next]')?.addEventListener('click', () =>
+        track.scrollBy({ left: step(), behavior: 'smooth' })
+      );
+    });
+  }
+  initRails();
+  document.addEventListener('astro:after-swap', initRails);
+</script>

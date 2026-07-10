@@ -1,0 +1,97 @@
+@import 'tailwindcss';
+
+/* ─────────────────────────────────────────────────────────────
+   VLR 品牌设计 token —— Tailwind v4 @theme
+   每个 token 同时是 CSS 变量与工具类（bg-navy / text-crimson …），单一来源。
+   ───────────────────────────────────────────────────────────── */
+@theme {
+  /* 品牌色 */
+  --color-navy: #00204c; /* 主结构色：页眉、页脚、板块标题 */
+  --color-navy-700: #06356d; /* navy 悬浮/渐变辅助 */
+  --color-navy-50: #eef2f8; /* 极浅蓝，卡片/区块微底 */
+  --color-crimson: #960218; /* 强调色：下划线、激活态、标签、链接 hover */
+  --color-crimson-600: #b21228;
+  --color-ink: #1f2733; /* 正文（略深、更沉稳）*/
+  --color-ink-soft: #66717f; /* 次级文本 */
+  --color-surface: #ffffff;
+  --color-muted: #f6f8fb; /* 浅灰底（带一点冷调，配 navy）*/
+  --color-line: #e7ebf1; /* 分隔线/边框 */
+
+  /* 阴影层级（更细腻、带一点 navy 冷调而非纯黑）*/
+  --shadow-card: 0 1px 2px rgba(0, 32, 76, 0.04), 0 4px 16px rgba(0, 32, 76, 0.06);
+  --shadow-card-hover: 0 6px 16px rgba(0, 32, 76, 0.1), 0 16px 40px rgba(0, 32, 76, 0.12);
+  --shadow-header: 0 4px 20px rgba(0, 0, 0, 0.16);
+
+  /* 字体：系统 CJK 栈，零 webfont 下载，不依赖被墙的 gstatic */
+  --font-sans:
+    'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    system-ui, sans-serif;
+
+  /* 布局 */
+  --container-vlr: 1400px;
+
+  /* 圆角 */
+  --radius-card: 10px;
+
+  /* 动效缓动 */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ── 基础层 ── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    /* 顶部：sticky 毛玻璃页眉背后透出的应是深蓝，而非白色。
+       html 底色设为 navy，body 内容区仍为白色。overscroll 回弹时顶部也保持深蓝。 */
+    background-color: var(--color-navy);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background-color: var(--color-surface);
+    line-height: 1.6;
+  }
+
+  /* 无障碍：键盘焦点环 */
+  :focus-visible {
+    outline: 2px solid var(--color-crimson);
+    outline-offset: 2px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+/* ── 复用工具 ── */
+@layer components {
+  /* 1400px 居中容器 + 两侧安全边距 */
+  .container-vlr {
+    width: 100%;
+    max-width: var(--container-vlr);
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+}
+
+/* 尊重「减少动态效果」偏好 */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

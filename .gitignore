@@ -1,0 +1,16 @@
+# 依赖与构建产物
+node_modules/
+dist/
+.astro/
+
+# 老站离线导出（素材源，不进仓库；解包产物在 legacy/ 亦忽略）
+*.vsbsitepackage
+*.sto
+legacy/
+
+# 环境与系统
+.env
+.env.production
+.DS_Store
+*.log
+npm-debug.log*

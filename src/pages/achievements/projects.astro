@@ -1,0 +1,23 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PageHeader from '@components/ui/PageHeader.astro';
+import TextPage from '@components/ui/TextPage.astro';
+import pages from '@data/legacy-pages.json';
+import { withBase } from '@lib/utils';
+
+const page = pages['info/projects'];
+---
+
+<BaseLayout title="支持的项目" description="VLR 研究组承担的纵向与横向科研项目。">
+  <PageHeader
+    title="支持的项目"
+    breadcrumbs={[
+      { label: '首页', href: withBase('/') },
+      { label: '研究成果', href: withBase('/publications') },
+      { label: '支持的项目' },
+    ]}
+  />
+  <div class="container-vlr py-12 md:py-16">
+    <TextPage text={page.text} />
+  </div>
+</BaseLayout>

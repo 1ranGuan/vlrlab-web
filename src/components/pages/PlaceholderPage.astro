@@ -1,0 +1,51 @@
+---
+/**
+ * 占位/建设中页面（英文壳子用）：英文页头 + 提示文案，可选跳转中文完整页。
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PageHeader from '@components/ui/PageHeader.astro';
+import { withBase } from '@lib/utils';
+import { useTranslations, type Locale } from '@/i18n/ui';
+
+interface Props {
+  locale?: Locale;
+  titleKey: string;
+  body?: string;
+  /** 中文完整页链接（如提供，显示“查看中文版”按钮） */
+  zhHref?: string;
+}
+const { locale = 'en', titleKey, body, zhHref } = Astro.props;
+const t = useTranslations(locale);
+const homeHref = locale === 'en' ? withBase('/en/') : withBase('/');
+const title = t(titleKey as any);
+---
+
+<BaseLayout title={title}>
+  <PageHeader
+    title={title}
+    breadcrumbs={[{ label: t('common.home'), href: homeHref }, { label: title }]}
+  />
+  <div class="container-vlr py-20">
+    <div class="mx-auto max-w-md text-center">
+      <div
+        class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-navy/5 text-navy"
+      >
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M12 7v5l3 2"></path>
+        </svg>
+      </div>
+      {body && <p class="text-ink-soft">{body}</p>}
+      {
+        zhHref && (
+          <a
+            href={withBase(zhHref)}
+            class="mt-6 inline-flex items-center gap-1 rounded-full border border-navy px-5 py-2 text-sm font-medium text-navy transition-colors hover:bg-navy hover:text-white"
+          >
+            查看中文版 / View in Chinese <span aria-hidden="true">›</span>
+          </a>
+        )
+      }
+    </div>
+  </div>
+</BaseLayout>

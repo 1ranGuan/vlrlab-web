@@ -1,0 +1,134 @@
+---
+/**
+ * 首页 Hero 轮播（老站 bannerSwiper）：全宽自动播放幻灯，Embla + autoplay。
+ * 图片来自 src/data/hero-slides.yaml，按 image 名从 src/assets/hero 匹配（import.meta.glob）。
+ */
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+
+// 预加载 hero 目录所有图片，供 astro:assets 优化
+const heroImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/hero/*.{jpg,jpeg,png,webp,avif}',
+  { eager: true }
+);
+
+const slides = (await getCollection('heroSlides')).sort(
+  (a, b) => (a.data.order ?? 999) - (b.data.order ?? 999)
+);
+
+function resolve(image: string): ImageMetadata | undefined {
+  return heroImages[`/src/assets/hero/${image}`]?.default;
+}
+---
+
+<section
+  class="relative mx-auto w-full overflow-hidden bg-gradient-to-b from-navy-700 to-navy"
+  data-hero
+>
+  <div class="embla mx-auto h-full max-w-[1920px]">
+    <div class="embla__viewport overflow-hidden" data-embla-viewport>
+      <div class="embla__container flex">
+        {
+          slides.map((slide, i) => {
+            const img = resolve(slide.data.image);
+            return (
+              <div class="embla__slide relative flex aspect-video min-w-0 flex-[0_0_100%] items-center justify-center overflow-hidden">
+                {/* 源图已统一为 16:9（见比例修复脚本），object-cover 正好铺满、不裁不拉。 */}
+                {img && (
+                  <Image
+                    src={img}
+                    alt={slide.data.caption ?? `VLR ${slide.id}`}
+                    widths={[768, 1280, 1920]}
+                    sizes="100vw"
+                    class="h-full w-full object-cover"
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                  />
+                )}
+                {slide.data.caption && (
+                  <p class="absolute bottom-6 left-[6%] rounded bg-crimson/90 px-5 py-2.5 text-base font-medium text-white shadow-lg backdrop-blur-sm md:bottom-10 md:px-6 md:py-3 md:text-xl">
+                    {slide.data.caption}
+                  </p>
+                )}
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+
+    <!-- 左右箭头 -->
+    <button
+      class="absolute left-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur transition-colors hover:bg-black/50"
+      aria-label="上一张"
+      data-embla-prev
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button
+      class="absolute right-3 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/30 text-white backdrop-blur transition-colors hover:bg-black/50"
+      aria-label="下一张"
+      data-embla-next
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+
+    <!-- 分页圆点 -->
+    <div class="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2" data-embla-dots></div>
+  </div>
+</section>
+
+<script>
+  import EmblaCarousel from 'embla-carousel';
+  import Autoplay from 'embla-carousel-autoplay';
+
+  function initHero() {
+    const root = document.querySelector<HTMLElement>('[data-hero]');
+    if (!root) return;
+    const viewport = root.querySelector<HTMLElement>('[data-embla-viewport]');
+    if (!viewport) return;
+
+    const embla = EmblaCarousel(viewport, { loop: true, align: 'center' }, [
+      Autoplay({ delay: 4000, stopOnInteraction: false }),
+    ]);
+
+    root.querySelector('[data-embla-prev]')?.addEventListener('click', () => embla.scrollPrev());
+    root.querySelector('[data-embla-next]')?.addEventListener('click', () => embla.scrollNext());
+
+    // 圆点
+    const dotsNode = root.querySelector<HTMLElement>('[data-embla-dots]');
+    if (dotsNode) {
+      const setDots = () => {
+        dotsNode.innerHTML = embla
+          .scrollSnapList()
+          .map(
+            (_, i) =>
+              `<button data-dot="${i}" aria-label="第 ${i + 1} 张" class="h-2 w-2 rounded-full bg-white/50 transition-all"></button>`
+          )
+          .join('');
+      };
+      const selectDot = () => {
+        const selected = embla.selectedScrollSnap();
+        dotsNode.querySelectorAll<HTMLElement>('[data-dot]').forEach((d, i) => {
+          d.classList.toggle('bg-white', i === selected);
+          d.classList.toggle('w-5', i === selected);
+          d.classList.toggle('bg-white/50', i !== selected);
+        });
+      };
+      setDots();
+      dotsNode.querySelectorAll<HTMLElement>('[data-dot]').forEach((d, i) =>
+        d.addEventListener('click', () => embla.scrollTo(i))
+      );
+      embla.on('select', selectDot);
+      embla.on('reInit', () => {
+        setDots();
+        dotsNode.querySelectorAll<HTMLElement>('[data-dot]').forEach((d, i) =>
+          d.addEventListener('click', () => embla.scrollTo(i))
+        );
+        selectDot();
+      });
+      selectDot();
+    }
+  }
+  initHero();
+  document.addEventListener('astro:after-swap', initHero);
+</script>

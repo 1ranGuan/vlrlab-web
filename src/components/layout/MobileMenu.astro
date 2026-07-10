@@ -1,0 +1,158 @@
+---
+/**
+ * 移动端导航：汉堡按钮 + 抽屉，子菜单可展开。仅此组件带少量客户端 JS。
+ */
+import { nav, type NavItem } from '@data/nav';
+import { withBase, isExternal } from '@lib/utils';
+
+interface Props {
+  items?: NavItem[];
+  switchHref?: string;
+  switchLabel?: string;
+}
+const { items = nav, switchHref, switchLabel } = Astro.props;
+
+const link = (href: string) => (isExternal(href) ? href : withBase(href));
+---
+
+<div class="lg:hidden" data-mobile-menu>
+  <button
+    type="button"
+    class="flex h-10 w-10 items-center justify-center rounded text-white"
+    aria-label="打开菜单"
+    aria-expanded="false"
+    aria-controls="mobile-drawer"
+    data-menu-toggle
+  >
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+
+  <!-- 抽屉 -->
+  <div
+    id="mobile-drawer"
+    class="fixed inset-0 z-[100] hidden"
+    data-menu-drawer
+  >
+    <div class="absolute inset-0 bg-black/50" data-menu-backdrop></div>
+    <nav
+      aria-label="移动端导航"
+      class="absolute right-0 top-0 h-full w-4/5 max-w-sm overflow-y-auto bg-navy px-2 py-4 shadow-2xl"
+    >
+      <div class="flex justify-end px-2 pb-2">
+        <button
+          type="button"
+          class="flex h-9 w-9 items-center justify-center rounded text-white"
+          aria-label="关闭菜单"
+          data-menu-close
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+            <line x1="6" y1="18" x2="18" y2="6"></line>
+          </svg>
+        </button>
+      </div>
+      <ul class="space-y-0.5">
+        {
+          items.map((item) => (
+            <li>
+              {item.children ? (
+                <details class="group">
+                  <summary
+                    class="flex cursor-pointer list-none items-center justify-between px-4 py-3 text-white/90 marker:hidden"
+                  >
+                    <a href={link(item.href)} class="font-medium">
+                      {item.label}
+                    </a>
+                    <svg
+                      class="transition-transform duration-200 group-open:rotate-180"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </summary>
+                  <ul class="mb-1 space-y-0.5 bg-white/5 py-1">
+                    {item.children.map((child) => (
+                      <li>
+                        <a
+                          href={link(child.href)}
+                          class="block px-8 py-2 text-sm text-white/75 hover:text-white"
+                          {...(isExternal(child.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                        >
+                          {child.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              ) : (
+                <a
+                  href={link(item.href)}
+                  class="block px-4 py-3 font-medium text-white/90 hover:text-white"
+                  {...(isExternal(item.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                >
+                  {item.label}
+                </a>
+              )}
+            </li>
+          ))
+        }
+        {
+          switchHref && (
+            <li class="mt-2 border-t border-white/10 pt-2">
+              <a href={switchHref} class="block px-4 py-3 font-medium text-white/90 hover:text-white">
+                {switchLabel}
+              </a>
+            </li>
+          )
+        }
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<script>
+  function initMobileMenu() {
+    const root = document.querySelector('[data-mobile-menu]');
+    if (!root) return;
+    const toggle = root.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+    const drawer = root.querySelector<HTMLElement>('[data-menu-drawer]');
+    if (!toggle || !drawer) return;
+
+    // 关键修复：页眉有 backdrop-filter，会成为 position:fixed 的包含块，
+    // 导致抽屉被限制在页眉高度内。把抽屉移到 <body> 直属，脱离该包含块，铺满全屏。
+    if (drawer.parentElement !== document.body) {
+      document.body.appendChild(drawer);
+    }
+    const backdrop = drawer.querySelector('[data-menu-backdrop]');
+    const closeBtn = drawer.querySelector('[data-menu-close]');
+
+    const open = () => {
+      drawer.classList.remove('hidden');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    };
+    const close = () => {
+      drawer.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+
+    toggle.addEventListener('click', open);
+    backdrop?.addEventListener('click', close);
+    closeBtn?.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !drawer.classList.contains('hidden')) close();
+    });
+  }
+  initMobileMenu();
+  document.addEventListener('astro:after-swap', initMobileMenu);
+</script>

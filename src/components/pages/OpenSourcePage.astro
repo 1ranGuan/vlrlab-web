@@ -1,0 +1,81 @@
+---
+/**
+ * 开源资料页（中英共用）：数据集/代码/模型的横向列表。
+ * 数据来自 src/data/datasets.yaml；locale 决定页头与标签语言（条目名/描述保持原文）。
+ */
+import { getCollection } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PageHeader from '@components/ui/PageHeader.astro';
+import { withBase } from '@lib/utils';
+import { useTranslations, type Locale, type UIKey } from '@/i18n/ui';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = 'zh' } = Astro.props;
+const t = useTranslations(locale);
+const homeHref = locale === 'en' ? withBase('/en/') : withBase('/');
+
+const items = (await getCollection('datasets')).sort(
+  (a, b) => (a.data.order ?? 999) - (b.data.order ?? 999)
+);
+const kindLabel = (kind: string) => t(`kind.${kind}` as UIKey);
+---
+
+<BaseLayout title={t('page.opensource.title')} description={t('page.opensource.subtitle')}>
+  <PageHeader
+    title={t('page.opensource.title')}
+    subtitle={t('page.opensource.subtitle')}
+    breadcrumbs={[
+      { label: t('common.home'), href: homeHref },
+      { label: t('page.opensource.title') },
+    ]}
+  />
+
+  <div class="container-vlr py-12 md:py-16">
+    {
+      items.length === 0 ? (
+        <p class="text-center text-ink-soft">{t('page.opensource.empty')}</p>
+      ) : (
+        <ul class="mx-auto max-w-4xl divide-y divide-line overflow-hidden rounded-xl bg-white shadow-[var(--shadow-card)] ring-1 ring-black/[0.04]">
+          {items.map((item) => (
+            <li>
+              <a
+                href={item.data.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group flex items-center gap-5 px-6 py-5 transition-colors hover:bg-muted"
+              >
+                {/* 左侧类型标签 */}
+                <span class="hidden w-20 shrink-0 sm:block">
+                  <span class="inline-block rounded-full bg-navy/5 px-2.5 py-1 text-[11px] font-semibold text-navy">
+                    {kindLabel(item.data.kind)}
+                  </span>
+                </span>
+                {/* 中间主体 */}
+                <div class="min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <h2 class="text-base font-bold text-navy transition-colors group-hover:text-crimson">
+                      {item.data.name}
+                    </h2>
+                    {item.data.venue && (
+                      <span class="text-[11px] font-medium text-crimson">{item.data.venue}</span>
+                    )}
+                  </div>
+                  <p class="mt-1 line-clamp-2 text-sm leading-relaxed text-ink-soft">
+                    {item.data.description}
+                  </p>
+                </div>
+                {/* 右侧访问 */}
+                <span class="hidden shrink-0 items-center gap-1 text-sm font-semibold text-crimson/90 transition-all group-hover:gap-1.5 group-hover:text-crimson md:inline-flex">
+                  {t('page.opensource.visit')}
+                  <span aria-hidden="true">↗</span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </div>
+</BaseLayout>

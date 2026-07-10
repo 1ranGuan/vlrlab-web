@@ -1,0 +1,115 @@
+---
+/**
+ * 新闻（老站 main3）：左侧图片轮播（Embla）+ 右侧新闻列表（方块日期 + 摘要）。
+ */
+import { Image } from 'astro:assets';
+import Section from '@components/ui/Section.astro';
+import SectionTitle from '@components/ui/SectionTitle.astro';
+import SmartLink from '@components/ui/SmartLink.astro';
+import { getHomepageNewsSlider, getHomepageNewsList } from '@lib/collections';
+import { dateBadge } from '@lib/utils';
+import { useTranslations, type Locale } from '@/i18n/ui';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = 'zh' } = Astro.props;
+const t = useTranslations(locale);
+
+const sliderItems = await getHomepageNewsSlider();
+const listItems = await getHomepageNewsList();
+---
+
+<Section variant="muted">
+  <SectionTitle title={t('home.news')} moreHref="/news" moreLabel={t('home.moreNews')} />
+
+  <div class="grid gap-8 lg:grid-cols-2">
+    <!-- 左：图片轮播 -->
+    <div class="relative overflow-hidden rounded-[var(--radius-card)] bg-white shadow-sm" data-news-slider>
+      <div class="overflow-hidden" data-embla-viewport>
+        <div class="flex">
+          {
+            sliderItems.map((item) => {
+              const href = item.data.external ?? `/news#${item.id}`;
+              return (
+                <div class="relative min-w-0 flex-[0_0_100%]">
+                  <SmartLink href={href} class="block">
+                    <div class="aspect-[16/9] overflow-hidden bg-muted">
+                      {item.data.cover && (
+                        <Image
+                          src={item.data.cover}
+                          alt={item.data.title}
+                          widths={[480, 800]}
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          class="h-full w-full object-cover"
+                        />
+                      )}
+                    </div>
+                    <p class="absolute inset-x-0 bottom-0 line-clamp-1 bg-navy/80 px-5 py-3 text-sm text-white">
+                      {item.data.title}
+                    </p>
+                  </SmartLink>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+      <button class="absolute left-2 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/30 text-white hover:bg-black/50" aria-label="上一条" data-embla-prev>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button class="absolute right-2 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/30 text-white hover:bg-black/50" aria-label="下一条" data-embla-next>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+
+    <!-- 右：新闻列表 -->
+    <ul class="flex flex-col divide-y divide-line">
+      {
+        listItems.map((item) => {
+          const href = item.data.external ?? `/news#${item.id}`;
+          const { day, ym } = dateBadge(item.data.date);
+          return (
+            <li>
+              <SmartLink href={href} class="group flex gap-4 py-5 first:pt-0">
+                <div class="flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-lg bg-navy text-white shadow-sm transition-colors duration-300 group-hover:bg-crimson">
+                  <span class="text-xl font-bold leading-none tracking-tight">{day}</span>
+                  <span class="mt-1 text-[10px] font-medium leading-none opacity-90">{ym}</span>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <h3 class="line-clamp-1 font-semibold text-ink transition-colors group-hover:text-crimson">
+                    {item.data.title}
+                  </h3>
+                  {item.data.excerpt && (
+                    <p class="mt-1.5 line-clamp-2 text-sm leading-relaxed text-ink-soft">
+                      {item.data.excerpt}
+                    </p>
+                  )}
+                </div>
+              </SmartLink>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</Section>
+
+<script>
+  import EmblaCarousel from 'embla-carousel';
+  import Autoplay from 'embla-carousel-autoplay';
+
+  function initNewsSlider() {
+    const root = document.querySelector<HTMLElement>('[data-news-slider]');
+    if (!root) return;
+    const viewport = root.querySelector<HTMLElement>('[data-embla-viewport]');
+    if (!viewport) return;
+    const embla = EmblaCarousel(viewport, { loop: true }, [
+      Autoplay({ delay: 4500, stopOnInteraction: false }),
+    ]);
+    root.querySelector('[data-embla-prev]')?.addEventListener('click', () => embla.scrollPrev());
+    root.querySelector('[data-embla-next]')?.addEventListener('click', () => embla.scrollNext());
+  }
+  initNewsSlider();
+  document.addEventListener('astro:after-swap', initNewsSlider);
+</script>

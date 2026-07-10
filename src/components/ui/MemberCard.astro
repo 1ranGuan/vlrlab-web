@@ -1,0 +1,80 @@
+---
+/**
+ * 团队成员卡片：头像 + 姓名 + 头衔 + 研究兴趣 + 邮箱/主页链接。
+ * 团队页与日后成员详情复用。
+ */
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { isExternal } from '@lib/utils';
+
+interface Props {
+  member: CollectionEntry<'team'>;
+}
+
+const { member } = Astro.props;
+const { name, nameEn, photo, title, email, homepage, interests } = member.data;
+const nameLink = homepage;
+---
+
+<article
+  class="group flex flex-col overflow-hidden rounded-xl bg-white shadow-[var(--shadow-card)] ring-1 ring-black/[0.04] transition-all duration-300 ease-[var(--ease-out)] hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)]"
+>
+  <div class="aspect-[4/5] overflow-hidden bg-muted">
+    {
+      photo ? (
+        <Image
+          src={photo}
+          alt={name}
+          width={320}
+          height={400}
+          class="h-full w-full object-cover object-top transition-transform duration-500 ease-[var(--ease-out)] group-hover:scale-105"
+        />
+      ) : (
+        <div class="flex h-full w-full items-center justify-center bg-navy/5 text-4xl font-semibold text-navy/30">
+          {name.charAt(0)}
+        </div>
+      )
+    }
+  </div>
+
+  <div class="flex flex-1 flex-col p-3 text-center">
+    <h3 class="text-sm font-semibold text-navy">
+      {
+        nameLink ? (
+          <a
+            href={nameLink}
+            class="transition-colors hover:text-crimson"
+            {...(isExternal(nameLink) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+          >
+            {name}
+          </a>
+        ) : (
+          name
+        )
+      }
+    </h3>
+    {nameEn && <p class="mt-0.5 text-[11px] text-ink-soft">{nameEn}</p>}
+    {title && <p class="mt-0.5 line-clamp-1 text-xs text-ink-soft">{title}</p>}
+
+    {
+      false && interests.length > 0 && (
+        <div class="mt-3 flex flex-wrap gap-1.5">
+          {interests.slice(0, 3).map((tag) => (
+            <span class="rounded-full bg-navy/5 px-2 py-0.5 text-[11px] text-navy/70">{tag}</span>
+          ))}
+        </div>
+      )
+    }
+
+    {
+      false && email && (
+        <a
+          href={`mailto:${email}`}
+          class="mt-3 inline-flex items-center gap-1 text-xs text-crimson/90 transition-colors hover:text-crimson"
+        >
+          {email}
+        </a>
+      )
+    }
+  </div>
+</article>

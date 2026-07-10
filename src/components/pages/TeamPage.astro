@@ -1,0 +1,110 @@
+---
+/**
+ * 团队页正文（中英共用）。locale 决定页头/角色标签语言；成员姓名等内容保持原样。
+ * 分角色标签切换：顶部一排角色标签，点击即时切换显示对应组（页内切换，不跳转）。
+ * 卡片网格更紧凑（桌面每行 7-8 个）。
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PageHeader from '@components/ui/PageHeader.astro';
+import MemberCard from '@components/ui/MemberCard.astro';
+import { getTeamByRole } from '@lib/collections';
+import { withBase } from '@lib/utils';
+import { useTranslations, roleLabels, type Locale } from '@/i18n/ui';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = 'zh' } = Astro.props;
+const t = useTranslations(locale);
+const homeHref = locale === 'en' ? withBase('/en/') : withBase('/');
+
+const groups = await getTeamByRole();
+const roleLabel = (role: string) => (locale === 'en' ? (roleLabels[role] ?? role) : role);
+---
+
+<BaseLayout title={t('page.team.title')} description={t('page.team.subtitle')}>
+  <PageHeader
+    title={t('page.team.title')}
+    subtitle={t('page.team.subtitle')}
+    breadcrumbs={[{ label: t('common.home'), href: homeHref }, { label: t('page.team.title') }]}
+  />
+
+  <div class="container-vlr py-12 md:py-16" data-team>
+    {
+      groups.length === 0 ? (
+        <p class="text-center text-ink-soft">—</p>
+      ) : (
+        <>
+          {/* 角色标签栏 */}
+          <div
+            class="mb-10 flex flex-wrap justify-center gap-2 border-b border-line pb-6"
+            role="tablist"
+          >
+            {groups.map((group, i) => (
+              <button
+                type="button"
+                role="tab"
+                data-team-tab={group.role}
+                aria-selected={i === 0 ? 'true' : 'false'}
+                class:list={[
+                  'rounded-full px-4 py-1.5 text-sm font-medium transition-colors',
+                  i === 0
+                    ? 'bg-navy text-white'
+                    : 'border border-line text-ink-soft hover:border-navy hover:text-navy',
+                ]}
+              >
+                {roleLabel(group.role)}
+                <span class="ml-1 opacity-70">{group.members.length}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* 各角色成员网格（默认只显示第一组） */}
+          {groups.map((group, i) => (
+            <section
+              data-team-panel={group.role}
+              class:list={['mb-4', i === 0 ? '' : 'hidden']}
+            >
+              <div class="mx-auto grid max-w-5xl grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
+                {group.members.map((member) => (
+                  <MemberCard member={member} />
+                ))}
+              </div>
+            </section>
+          ))}
+        </>
+      )
+    }
+  </div>
+</BaseLayout>
+
+<script>
+  function initTeamTabs() {
+    const root = document.querySelector<HTMLElement>('[data-team]');
+    if (!root) return;
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[data-team-tab]')];
+    const panels = [...root.querySelectorAll<HTMLElement>('[data-team-panel]')];
+    if (!tabs.length) return;
+
+    const activate = (role: string) => {
+      tabs.forEach((tab) => {
+        const on = tab.dataset.teamTab === role;
+        tab.setAttribute('aria-selected', on ? 'true' : 'false');
+        tab.classList.toggle('bg-navy', on);
+        tab.classList.toggle('text-white', on);
+        tab.classList.toggle('border', !on);
+        tab.classList.toggle('border-line', !on);
+        tab.classList.toggle('text-ink-soft', !on);
+        tab.classList.toggle('hover:border-navy', !on);
+        tab.classList.toggle('hover:text-navy', !on);
+      });
+      panels.forEach((panel) => {
+        panel.classList.toggle('hidden', panel.dataset.teamPanel !== role);
+      });
+    };
+
+    tabs.forEach((tab) => tab.addEventListener('click', () => activate(tab.dataset.teamTab!)));
+  }
+  initTeamTabs();
+  document.addEventListener('astro:after-swap', initTeamTabs);
+</script>

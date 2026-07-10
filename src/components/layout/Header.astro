@@ -1,0 +1,72 @@
+---
+/**
+ * 页眉（老站 .top_wrap）：logo + 主导航 + 语言切换。navy 底色，sticky。
+ * Logo = 品牌图标（眼睛 + VLR Group）+ 文字条（英文全称 / 中文名），两张均为浅蓝透明底 PNG，
+ * 用 CSS 滤镜（brightness-0 invert）转成白色，保证在深蓝页眉上高对比、清晰。
+ */
+import { Image } from 'astro:assets';
+import { withBase } from '@lib/utils';
+import { site } from '@data/site';
+import { getNav } from '@data/nav';
+import { useTranslations, switchLocalePath, type Locale } from '@/i18n/ui';
+import logoIcon from '@assets/brand/logo.png';
+import logoText from '@assets/brand/logo-text.png';
+import Nav from './Nav.astro';
+import MobileMenu from './MobileMenu.astro';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = 'zh' } = Astro.props;
+const t = useTranslations(locale);
+const items = getNav(locale);
+const homeHref = locale === 'en' ? withBase('/en/') : withBase('/');
+const switchHref = switchLocalePath(Astro.url.pathname, locale === 'en' ? 'zh' : 'en');
+---
+
+<header
+  class="sticky top-0 z-40 border-b border-white/10 bg-navy/80 shadow-[0_4px_20px_rgba(0,0,0,0.18)] backdrop-blur-md"
+>
+  <div class="container-vlr flex items-center justify-between gap-4 py-3">
+    <!-- Logo：图标 + 文字条，滤镜转白 -->
+    <a
+      href={homeHref}
+      title={site.name}
+      class="group flex shrink-0 items-center gap-3 [filter:brightness(0)_invert(1)]"
+    >
+      <Image
+        src={logoIcon}
+        alt=""
+        aria-hidden="true"
+        height={96}
+        width={100}
+        loading="eager"
+        class="h-10 w-auto shrink-0 transition-transform duration-300 ease-out group-hover:scale-105 md:h-11"
+      />
+      <Image
+        src={logoText}
+        alt={site.name}
+        height={176}
+        width={1001}
+        loading="eager"
+        class="ml-2 hidden h-11 w-auto sm:block md:h-14"
+      />
+    </a>
+
+    <div class="flex items-center gap-5">
+      <!-- 桌面导航 -->
+      <Nav items={items} />
+
+      <!-- 语言切换 -->
+      <a
+        href={switchHref}
+        class="hidden shrink-0 rounded-full border border-white/25 px-3 py-1 text-sm text-white/85 transition-colors hover:border-white hover:text-white lg:inline-block"
+      >
+        {t('lang.switch')}
+      </a>
+
+      <!-- 移动端汉堡 -->
+      <MobileMenu items={items} switchHref={switchHref} switchLabel={t('lang.switch')} />
+    </div>
+  </div>
+</header>

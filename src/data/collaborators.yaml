@@ -1,0 +1,47 @@
+# 合作者（老站首页 Collaborators 轮播）。
+# 新增：加一条记录即可，头像放 src/assets/collaborators/<id>.<ext>，组件按 id 匹配。
+# order 从小到大排列。
+- id: fabio-roli
+  name: Fabio Roli
+  url: http://pralab.diee.unica.it/en/FabioRoli
+  order: 1
+- id: alan-yuille
+  name: Alan L. Yuille
+  url: http://www.cs.jhu.edu/~ayuille/
+  order: 2
+- id: zhuowen-tu
+  name: Zhuowen Tu
+  url: https://pages.ucsd.edu/~ztu/
+  order: 3
+- id: serge-belongie
+  name: Serge Belongie
+  url: https://blogs.cornell.edu/techfaculty/serge-belongie/
+  order: 4
+- id: jiebo-luo
+  name: Jiebo Luo
+  url: https://www.cs.rochester.edu/u/jluo/
+  order: 5
+- id: marcello-pelillo
+  name: Marcello Pelillo
+  url: http://www.dsi.unive.it/~pelillo/
+  order: 6
+- id: longin-jan-latecki
+  name: Longin Jan Latecki
+  url: https://cis.temple.edu/~latecki/
+  order: 7
+- id: laurent-najman
+  name: Laurent Najman
+  url: http://www.laurentnajman.org/
+  order: 8
+- id: isabelle-bloch
+  name: Isabelle Bloch
+  url: https://perso.telecom-paristech.fr/bloch/
+  order: 9
+- id: qi-tian
+  name: Qi Tian
+  url: https://scholar.google.com/citations?user=61b6eYkAAAAJ&hl=zh-CN
+  order: 10
+- id: sven-dickinson
+  name: Sven Dickinson
+  url: http://www.cs.toronto.edu/~sven/
+  order: 11

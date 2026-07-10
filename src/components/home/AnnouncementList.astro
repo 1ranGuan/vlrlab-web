@@ -1,0 +1,62 @@
+---
+/**
+ * 通知公告（老站 main2）：navy 底色条带 + 白卡片列表，crimson 分类标签。
+ */
+import Section from '@components/ui/Section.astro';
+import SectionTitle from '@components/ui/SectionTitle.astro';
+import SmartLink from '@components/ui/SmartLink.astro';
+import { getHomepageAnnouncements } from '@lib/collections';
+import { isoDate } from '@lib/utils';
+import { useTranslations, type Locale } from '@/i18n/ui';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = 'zh' } = Astro.props;
+const t = useTranslations(locale);
+
+const items = await getHomepageAnnouncements();
+---
+
+<Section variant="navy">
+  <SectionTitle
+    title={t('home.announcements')}
+    moreHref="/announcements"
+    moreLabel={t('home.moreAnnouncements')}
+    inverted
+  />
+
+  <ul class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+    {
+      items.map((item) => {
+        const href = item.data.external ?? `/announcements#${item.id}`;
+        return (
+          <li class="group h-full">
+            <SmartLink
+              href={href}
+              class="relative flex h-full flex-col overflow-hidden rounded-xl bg-white p-5 shadow-[var(--shadow-card)] transition-all duration-300 ease-[var(--ease-out)] hover:-translate-y-1.5 hover:shadow-[var(--shadow-card-hover)]"
+            >
+              <span
+                class="absolute inset-y-0 left-0 w-1 bg-crimson/0 transition-colors duration-300 group-hover:bg-crimson"
+                aria-hidden="true"
+              />
+              <div class="mb-3 flex items-center justify-between">
+                <span class="inline-block rounded-full bg-crimson/10 px-2.5 py-0.5 text-[11px] font-semibold text-crimson">
+                  {item.data.category}
+                </span>
+                <time class="text-xs text-ink-soft">{isoDate(item.data.date)}</time>
+              </div>
+              <h3 class="line-clamp-3 flex-1 text-sm font-medium leading-relaxed text-ink transition-colors group-hover:text-crimson">
+                {item.data.title}
+              </h3>
+            </SmartLink>
+          </li>
+        );
+      })
+    }
+  </ul>
+
+  <div class="mt-6 text-center md:hidden">
+    <a href="/announcements" class="text-sm font-semibold text-white/90">更多通知公告 →</a>
+  </div>
+</Section>

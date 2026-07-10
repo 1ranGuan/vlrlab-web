@@ -1,0 +1,26 @@
+---
+/**
+ * 纯文本信息页渲染：把提取自老站的纯文本按行拆成段落/列表，套用统一排版。
+ * 用于教学/招聘/联系/获奖/项目等以文字为主的页面。
+ */
+interface Props {
+  text: string;
+}
+const { text } = Astro.props;
+const lines = text.split('\n').map((l) => l.trim()).filter(Boolean);
+---
+
+<div class="mx-auto max-w-3xl leading-relaxed text-ink">
+  {
+    lines.map((line) =>
+      line.startsWith('- ') ? (
+        <p class="ml-4 flex gap-2 py-0.5 text-ink-soft">
+          <span class="text-crimson" aria-hidden="true">·</span>
+          <span>{line.slice(2)}</span>
+        </p>
+      ) : (
+        <p class="py-1.5">{line}</p>
+      )
+    )
+  }
+</div>

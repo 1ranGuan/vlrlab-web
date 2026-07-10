@@ -1,0 +1,28 @@
+# 友情链接（老站页脚）。新增：加一行即可。
+- id: zhihua-zhou
+  label: Zhihua Zhou
+  url: https://cs.nju.edu.cn/zhouzh/index.htm
+- id: longin-jan-latecki
+  label: Longin Jan Latecki
+  url: https://cis.temple.edu/~latecki/
+- id: zhuowen-tu
+  label: Zhuowen Tu
+  url: https://pages.ucsd.edu/~ztu/
+- id: shiguang-shan
+  label: Shiguang Shan
+  url: https://vipl.ict.ac.cn/people/sgshan/
+- id: mclab
+  label: MCLab
+  url: http://mclab.eic.hust.edu.cn/
+- id: guofeng-zhang
+  label: Guofeng Zhang
+  url: http://www.cad.zju.edu.cn/home/gfzhang/
+- id: junsong-yuan
+  label: Junsong Yuan
+  url: https://cse.buffalo.edu/~jsyuan/
+- id: xinggang-wang
+  label: Xinggang Wang
+  url: '#' # 老站未填（原为 '#'）；补上主页后替换
+- id: wenyu-liu
+  label: Wenyu Liu
+  url: http://eic.hust.edu.cn/professor/liuwenyu/
