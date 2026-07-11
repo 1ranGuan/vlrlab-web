@@ -32,17 +32,30 @@ function resolve(image: string): ImageMetadata | undefined {
           slides.map((slide, i) => {
             const img = resolve(slide.data.image);
             return (
-              <div class="embla__slide relative flex aspect-video min-w-0 flex-[0_0_100%] items-center justify-center overflow-hidden">
-                {/* 源图已统一为 16:9（见比例修复脚本），object-cover 正好铺满、不裁不拉。 */}
+              <div class="embla__slide relative flex aspect-[21/9] min-w-0 flex-[0_0_100%] items-center justify-center overflow-hidden">
                 {img && (
-                  <Image
-                    src={img}
-                    alt={slide.data.caption ?? `VLR ${slide.id}`}
-                    widths={[768, 1280, 1920]}
-                    sizes="100vw"
-                    class="h-full w-full object-cover"
-                    loading={i === 0 ? 'eager' : 'lazy'}
-                  />
+                  <>
+                    {/* 模糊背景：同图放大 + cover 铺满矮框，填充前景两侧/上下的空白。
+                        cover/contain 都是等比缩放，不横向拉伸变形。 */}
+                    <Image
+                      src={img}
+                      alt=""
+                      aria-hidden="true"
+                      widths={[640, 1024]}
+                      sizes="100vw"
+                      class="absolute inset-0 h-full w-full scale-110 object-cover blur-2xl brightness-75"
+                      loading={i === 0 ? 'eager' : 'lazy'}
+                    />
+                    {/* 前景：object-contain 完整显示，不裁不拉 */}
+                    <Image
+                      src={img}
+                      alt={slide.data.caption ?? `VLR ${slide.id}`}
+                      widths={[768, 1280, 1920]}
+                      sizes="100vw"
+                      class="relative h-full w-full object-contain"
+                      loading={i === 0 ? 'eager' : 'lazy'}
+                    />
+                  </>
                 )}
                 {slide.data.caption && (
                   <p class="absolute bottom-6 left-[6%] rounded bg-crimson/90 px-5 py-2.5 text-base font-medium text-white shadow-lg backdrop-blur-sm md:bottom-10 md:px-6 md:py-3 md:text-xl">

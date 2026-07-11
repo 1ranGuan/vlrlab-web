@@ -1,10 +1,10 @@
 # VLR Lab Website
 
-华中科技大学 **Vision and Learning Representation Group（VLR，白翔 团队）** 官网，基于 [Astro](https://astro.build) 构建的静态站点。
+华中科技大学 **Vision and Learning Representation Group** 官网，基于 [Astro](https://astro.build) 构建的静态站点。
 
 这是一个**内容驱动**的网站：**加论文、新闻、成员 = 加一个 Markdown 文件（+ 图片），然后提交 git，无需改代码、无需登录后台。** 字段在构建时自动校验，写错会有明确提示。
 
-> 实验室同学最常做的三件事：加成员、发新闻、加论文。往下看「我要加内容」——**推荐让 AI agent 帮你做**，一句话的事。
+> 如果需要：加成员、发新闻、加论文。往下看「我要加内容」——**推荐让 AI agent 帮你做**，一句话的事。
 
 ---
 
@@ -95,8 +95,6 @@ npm run preview    # 本地预览生产构建
 npm run format     # prettier 格式化
 ```
 
-> **网络提示**：本机若配了 FlClash 代理（`127.0.0.1:7890`），`npm install` 超时可先在终端跑 `proxy_on` 再重试；代理未启动时直连 registry 通常也可。
-
 ## 技术栈
 
 - **Astro 6**（`output: 'static'`，TypeScript strict）
@@ -113,13 +111,7 @@ npm run format     # prettier 格式化
 
 ## 附：老站素材提取（一次性，通常无需关心）
 
-本站由旧的 Visual SiteBuilder 校园 CMS 站点重建而来。老站完整离线导出为两个归档（`*.vsbsitepackage` / `*.sto`，已 `.gitignore`）。如需从老站补提取图片/PDF：
-
-```bash
-bash scripts/extract-legacy.sh    # 纯本地，无需网络；图片→src/assets/**，PDF→public/files/
-```
-
-内容正文可在解包后的 `legacy/pkg/data/wbnews.xml` 中查阅。日常加内容用不到这一步。
+本站由旧的 Visual SiteBuilder 校园 CMS 站点重建而来。老站完整离线导出为两个归档（`*.vsbsitepackage` / `*.sto`，已 `.gitignore`）。
 
 ## 附：日后启用英文版（i18n）
 

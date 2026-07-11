@@ -11,7 +11,7 @@ export const site = {
     '华中科技大学 Vision and Learning Representation Group（VLR，白翔 / 刘永革团队）——计算机视觉、文档图像智能、自动驾驶感知、遥感检测、工业与医疗视觉方向的研究组。',
   // 部署到最终域名后更新。
   url: 'https://vlrlab.example.edu',
-  copyrightYear: 2022,
+  copyrightYear: 2026,
 
   // 联系邮箱（老站页脚）。用 (at)/(dot) 混淆防爬，展示时还原。
   emails: [
