@@ -4,10 +4,9 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // ⬇️ 注册好 .cc 域名后，把这里改成你的最终域名（含 https://，结尾不要斜杠）。
-  //    例如：'https://vlrlab.cc'。改完 commit 推送即自动重新部署。
-  //    （site 影响 sitemap、canonical、og:url 等；base 用自定义域名保持 '/'。）
-  site: 'https://vlrlab.cc',
+  // 正式域名（含 https://，结尾不要斜杠）。site 影响 sitemap、canonical、og:url。
+  // base 用自定义域名保持 '/'。
+  site: 'https://vlrlab.com',
   base: '/',
   output: 'static',
   // Tailwind v4 通过 PostCSS 接入（postcss.config.mjs）。
