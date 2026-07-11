@@ -4,6 +4,7 @@
  * 分角色标签切换：顶部一排角色标签，点击即时切换显示对应组（页内切换，不跳转）。
  * 卡片网格更紧凑（桌面每行 7-8 个）。
  */
+import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import PageHeader from '@components/ui/PageHeader.astro';
 import MemberCard from '@components/ui/MemberCard.astro';
@@ -20,6 +21,10 @@ const homeHref = locale === 'en' ? withBase('/en/') : withBase('/');
 
 const groups = await getTeamByRole();
 const roleLabel = (role: string) => (locale === 'en' ? (roleLabels[role] ?? role) : role);
+
+// 以往成员：简洁文字列表（非照片卡片），单独渲染。
+const formerMembers = (await getCollection('formerMembers')).map((e) => e.data.text);
+const formerLabel = locale === 'en' ? 'Former Members' : '以往成员';
 ---
 
 <BaseLayout title={t('page.team.title')} description={t('page.team.subtitle')}>
@@ -35,7 +40,7 @@ const roleLabel = (role: string) => (locale === 'en' ? (roleLabels[role] ?? role
         <p class="text-center text-ink-soft">—</p>
       ) : (
         <>
-          {/* 角色标签栏 */}
+          {/* 角色标签栏：照片卡片各角色 + 末尾「以往成员」文字列表 */}
           <div
             class="mb-10 flex flex-wrap justify-center gap-2 border-b border-line pb-6"
             role="tablist"
@@ -57,6 +62,18 @@ const roleLabel = (role: string) => (locale === 'en' ? (roleLabels[role] ?? role
                 <span class="ml-1 opacity-70">{group.members.length}</span>
               </button>
             ))}
+            {formerMembers.length > 0 && (
+              <button
+                type="button"
+                role="tab"
+                data-team-tab="__former"
+                aria-selected="false"
+                class="rounded-full border border-line px-4 py-1.5 text-sm font-medium text-ink-soft transition-colors hover:border-navy hover:text-navy"
+              >
+                {formerLabel}
+                <span class="ml-1 opacity-70">{formerMembers.length}</span>
+              </button>
+            )}
           </div>
 
           {/* 各角色成员网格（默认只显示第一组） */}
@@ -72,6 +89,20 @@ const roleLabel = (role: string) => (locale === 'en' ? (roleLabels[role] ?? role
               </div>
             </section>
           ))}
+
+          {/* 以往成员：简洁文字列表 */}
+          {formerMembers.length > 0 && (
+            <section data-team-panel="__former" class="mb-4 hidden">
+              <ul class="mx-auto max-w-3xl space-y-1">
+                {formerMembers.map((text) => (
+                  <li class="flex gap-2 border-b border-line/60 py-2.5 text-sm leading-relaxed text-ink">
+                    <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-crimson/70" aria-hidden="true" />
+                    <span>{text}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
         </>
       )
     }
@@ -104,6 +135,16 @@ const roleLabel = (role: string) => (locale === 'en' ? (roleLabels[role] ?? role
     };
 
     tabs.forEach((tab) => tab.addEventListener('click', () => activate(tab.dataset.teamTab!)));
+
+    // 支持从 URL #hash 定位到对应标签（导航子菜单用 /team#博士生 等）。
+    const applyHash = () => {
+      const raw = decodeURIComponent(location.hash.replace(/^#/, ''));
+      if (!raw) return;
+      const key = raw === '以往成员' ? '__former' : raw;
+      if (tabs.some((t) => t.dataset.teamTab === key)) activate(key);
+    };
+    applyHash();
+    window.addEventListener('hashchange', applyHash);
   }
   initTeamTabs();
   document.addEventListener('astro:after-swap', initTeamTabs);

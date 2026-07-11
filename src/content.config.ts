@@ -142,6 +142,15 @@ const datasets = defineCollection({
   }),
 });
 
+// ── 以往成员：简洁文字列表（非照片卡片）──
+const formerMembers = defineCollection({
+  loader: file('./src/data/former-members.yaml'),
+  schema: z.object({
+    id: z.string(),
+    text: z.string(), // 姓名, 年份, 学位/荣誉, 现状
+  }),
+});
+
 export const collections = {
   publications,
   news,
@@ -152,4 +161,5 @@ export const collections = {
   friendLinks,
   heroSlides,
   datasets,
+  formerMembers,
 };

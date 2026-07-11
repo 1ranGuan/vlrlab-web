@@ -25,14 +25,15 @@ export const nav: NavItem[] = [
   {
     label: '研究团队',
     href: '/team',
+    // 团队页是单页内标签切换（无 /team/<角色> 子页），故子菜单用 #hash 定位到对应标签。
     children: [
-      { label: '教授', href: '/team/教授' },
-      { label: '博后', href: '/team/博后' },
-      { label: '博士生', href: '/team/博士生' },
-      { label: '硕士生', href: '/team/硕士生' },
-      { label: '毕业生', href: '/team/毕业生' },
-      { label: '实验室助理', href: '/team/实验室助理' },
-      { label: '以往成员', href: '/team/以往成员' },
+      { label: '教授', href: '/team#教授' },
+      { label: '博后', href: '/team#博后' },
+      { label: '博士生', href: '/team#博士生' },
+      { label: '硕士生', href: '/team#硕士生' },
+      { label: '毕业生', href: '/team#毕业生' },
+      { label: '实验室助理', href: '/team#实验室助理' },
+      { label: '以往成员', href: '/team#以往成员' },
     ],
   },
   {

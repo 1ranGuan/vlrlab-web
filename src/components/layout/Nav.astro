@@ -40,21 +40,23 @@ const isActive = (href: string) => href === '/' ? currentPath === withBase('/') 
           </a>
 
           {item.children && (
-            <ul
-              class="invisible absolute left-1/2 top-full z-50 min-w-[168px] -translate-x-1/2 rounded-b-md bg-white py-2 opacity-0 shadow-xl transition-all duration-200 ease-out group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
+            <div
+              class="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-1 opacity-0 transition-all duration-200 ease-out group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
             >
-              {item.children.map((child) => (
-                <li>
-                  <a
-                    href={link(child.href)}
-                    class="block px-5 py-2 text-center text-sm text-ink transition-colors hover:bg-muted hover:font-semibold hover:text-crimson"
-                    {...(isExternal(child.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  >
-                    {child.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+              <ul class="min-w-[176px] overflow-hidden rounded-md bg-white py-2 shadow-xl ring-1 ring-black/5">
+                {item.children.map((child) => (
+                  <li>
+                    <a
+                      href={link(child.href)}
+                      class="block whitespace-nowrap px-5 py-2 text-center text-sm text-ink transition-colors hover:bg-muted hover:font-semibold hover:text-crimson"
+                      {...(isExternal(child.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    >
+                      {child.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
         </li>
       ))

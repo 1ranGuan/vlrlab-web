@@ -1,0 +1,57 @@
+# 以往成员（简洁文字列表，非照片卡片）。
+# 每条一行：id 任意唯一，text 为展示文字（姓名, 年份, 学位/荣誉, 现状）。
+# 新增：加一条 { id, text } 即可。
+- id: fm-1
+  text: "Bo Wang, 2010, Hubei Province Excellent Undergradute Graduation thesis, now he is an assistant professor of University of Toronto."
+- id: fm-2
+  text: "Tianyang Ma, 2010，Undergradute Student, HUST; Ph.D. Temple Univerisity; Now at Amazon Company."
+- id: fm-3
+  text: "Wei Shen, 2013, Ph.D. HUST, Tencent Fellowship, co-supervised with Prof. Hongyuan Wang, now a faculty member of Shanghai University"
+- id: fm-4
+  text: "Xianggang Wang, 2014, Ph.D. HUST, Microsoft Fellowship 2012, National PhD Fellowship, co-supervised with Prof. Wenyu Liu, Ass. Prof. of HUST"
+- id: fm-5
+  text: "Cong Yao, 2014, Ph.D. HUST,National PhD Fellowship, co-supervised with Prof. Wenyu Liu, now at Megvii."
+- id: fm-6
+  text: "Yu Zhou, 2014, Ph.D. HUST, co-supervised with Prof. Wenyu Liu, now an associate Prof. of HUST"
+- id: fm-7
+  text: "Junwei Wang, 2012, Ph.D, HUST co-supervised with Prof. Wenyu Liu, now at 709 Institute, Wuhan"
+- id: fm-8
+  text: "Chunyuan Li, 2011, Undergradute Student, HUST; Now at Duke University"
+- id: fm-9
+  text: "Chen Shen, 2013 , Master HUST, now at Temple University"
+- id: fm-10
+  text: "Cong Rao, 2014 , Master HUST, National Master Fellowship, now at Temple University."
+- id: fm-11
+  text: "Weichao Qiu, 2014, Master HUST, now at University of California, Los Angeles (UCLA)"
+- id: fm-12
+  text: "Yan Wang, 2011, Hubei Province Excellent Undergradute Graduation thesis, now at NTU"
+- id: fm-13
+  text: "Quanming Yao, 2013, Hubei Province Excellent Undergradute Graduation thesis, now at HKUST"
+- id: fm-14
+  text: "Yueming Wang, 2014, Master HUST, National Master Fellowship, now at Taobao Company, Hangzhou"
+- id: fm-15
+  text: "Yi Xiong, 2014, Master HUST, now at Tencent Company, Shenzhen"
+- id: fm-16
+  text: "Changtao Wang, 2013, Master HUST, worked in Baidu Company, Beijing"
+- id: fm-17
+  text: "Chao Cai, 2013, Master HUST, now at Zhongyuan Electronic Information Corporation, Wuhan"
+- id: fm-18
+  text: "Le He, 2015, Master HUST; now at Toutiao"
+- id: fm-19
+  text: "Tingwu Hou, 2015, Master HUST; now at Huawei"
+- id: fm-20
+  text: "Xu Min, 2014, Undergradute student, HUST; Now at Tsinghua University"
+- id: fm-21
+  text: "Yajun Gao, 2011, Undergadute student, HUST; Georgio Insititute of Technology, Master. Now at Amazon"
+- id: fm-22
+  text: "Zhuotun Zhu, 2015, Undergradute student, HUST, Young Microsoft Fellowship; Now at University of California, Los Angeles (UCLA)"
+- id: fm-23
+  text: "Zheng Zhang, 2016, Master, HUST, National Master Fellowship 2015, Now at Microsoft, Suzhou."
+- id: fm-24
+  text: "Chengquan, 2016, Master, HUST, Now at Baidu, Shenzhen."
+- id: fm-25
+  text: "Hong Wang, 2016, Undergradute student, HUST. Now at Carnegie Mellon University (CMU)"
+- id: fm-26
+  text: "Pan Chen, 2016, Ph.D., HUST, co-supervised with Prof. Wenyu Liu. Now a faculty member in Chinese University of Geosciences"
+- id: fm-27
+  text: "Duoyou Zhou, 2017, Master, HUST, Now at Toutiao"
