@@ -1,6 +1,8 @@
 ---
 /**
- * 论文列表页正文（中英共用）。locale 决定页头语言；论文标题等内容保持原样。
+ * 论文列表页正文（中英共用）。locale 决定页头/界面语言；论文标题等内容保持原样。
+ * 顶部「代表作 / 全部」切换：代表作视图只显示 featured 论文（页内切换，不跳转）；
+ * 导航「代表作论文」链到 /publications#featured 自动定位。
  */
 import BaseLayout from '@layouts/BaseLayout.astro';
 import PageHeader from '@components/ui/PageHeader.astro';
@@ -15,8 +17,11 @@ interface Props {
 const { locale = 'zh' } = Astro.props;
 const t = useTranslations(locale);
 const homeHref = locale === 'en' ? withBase('/en/') : withBase('/');
+const featuredLabel = locale === 'en' ? 'Representative' : '代表作';
+const allLabel = locale === 'en' ? 'All' : '全部';
 
 const papers = await getAllPublications();
+const hasFeatured = papers.some((p) => p.data.featured);
 ---
 
 <BaseLayout title={t('page.publications.title')} description={t('page.publications.subtitle')}>
@@ -29,9 +34,70 @@ const papers = await getAllPublications();
     ]}
   />
 
-  <div class="container-vlr py-12 md:py-16">
+  <div class="container-vlr py-12 md:py-16" data-pubs>
+    {
+      hasFeatured && (
+        <div class="mb-8 flex flex-wrap gap-2">
+          <button
+            type="button"
+            data-pub-filter="featured"
+            class="rounded-full bg-navy px-4 py-1.5 text-sm font-medium text-white transition-colors"
+          >
+            {featuredLabel}
+          </button>
+          <button
+            type="button"
+            data-pub-filter="all"
+            class="rounded-full border border-line px-4 py-1.5 text-sm font-medium text-ink-soft transition-colors hover:border-navy hover:text-navy"
+          >
+            {allLabel}
+          </button>
+        </div>
+      )
+    }
+
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {papers.map((paper) => <PaperCard paper={paper} />)}
+      {
+        papers.map((paper) => (
+          <div data-pub-item data-featured={paper.data.featured ? 'true' : 'false'}>
+            <PaperCard paper={paper} />
+          </div>
+        ))
+      }
     </div>
   </div>
 </BaseLayout>
+
+<script>
+  function initPubFilter() {
+    const root = document.querySelector<HTMLElement>('[data-pubs]');
+    if (!root) return;
+    const btns = [...root.querySelectorAll<HTMLButtonElement>('[data-pub-filter]')];
+    const items = [...root.querySelectorAll<HTMLElement>('[data-pub-item]')];
+    if (!btns.length) return;
+
+    const apply = (mode: string) => {
+      btns.forEach((b) => {
+        const on = b.dataset.pubFilter === mode;
+        b.classList.toggle('bg-navy', on);
+        b.classList.toggle('text-white', on);
+        b.classList.toggle('border', !on);
+        b.classList.toggle('border-line', !on);
+        b.classList.toggle('text-ink-soft', !on);
+        b.classList.toggle('hover:border-navy', !on);
+        b.classList.toggle('hover:text-navy', !on);
+      });
+      items.forEach((it) => {
+        const show = mode === 'all' || it.dataset.featured === 'true';
+        it.classList.toggle('hidden', !show);
+      });
+    };
+
+    btns.forEach((b) => b.addEventListener('click', () => apply(b.dataset.pubFilter!)));
+    // 默认：有 #featured 或首次进入显示代表作；否则全部
+    apply(location.hash === '#featured' ? 'featured' : 'all');
+    window.addEventListener('hashchange', () => apply(location.hash === '#featured' ? 'featured' : 'all'));
+  }
+  initPubFilter();
+  document.addEventListener('astro:after-swap', initPubFilter);
+</script>

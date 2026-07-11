@@ -1,0 +1,329 @@
+[
+  {
+    "year": "2022",
+    "items": [
+      "Liu, X., Wang, Q., Hu, Y., Tang, X., Zhang, S., Bai, S., & Bai, X. (2022). End-to-end temporal action detection with transformer. IEEE Transactions on Image Processing (TIP). [pdf]",
+      "Liao M, Zou Z, Wan Z, Yao C, Bai X. Real-Time Scene Text Detection with Differentiable Binarization and Adaptive Scale Fusion. IEEE transactions on pattern analysis and machine intelligence (TPAMI), 2022 [pdf] [code]",
+      "Qi J, Gao Y, Hu Y, et al. Occluded Video Instance Segmentation: A Benchmark. Int. Journal of Computer Vision (IJCV), 2022 [pdf] [code]",
+      "Wu, Z., Zhu, Z., Du, J., & Bai, X. (2022). CCPL: Contrastive Coherence Preserving Loss for Versatile Style Transfer. European Conference on Computer Vision (ECCV), 2022. [pdf]",
+      "Liang, D., Chen, X., Xu, W., Zhou, Y., & Bai, X. (2022). TransCrowd: weakly-supervised crowd counting with transformers. Science China Information Sciences, 65(6), 1-14. [pdf]",
+      "Fang, C., Li, H. Y., Li, L., Su, H. Y., Tang, J., Bai, X., & Liu, H. (2022). Smart Electronic Nose Enabled by an All‐Feature Olfactory Algorithm. Advanced Intelligent Systems, 2200074.",
+      "Zhang W, Qiu Y, Bai S, Zhang R, Wei X, Bai X. FedOCR: Communication-Efficient Federated Learning for Scene Text Recognition. Association for the Advancement of Artificial Intelligence Workshop(AAAIW), 2022 [pdf]",
+      "Chen Y, Liang D, Bai X, Xu Y, Yang X. Cell Localization and Counting Using Direction Field Map. IEEE Journal of Biomedical and Health Informatics, 2022 [pdf]",
+      "Yuan Y, Liu X, Dikubab W, Liu H, Ji Z, Wu Z, Bai X. Syntax-Aware Network for Handwritten Mathematical Expression Recognition. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2022 [pdf]",
+      "Dikubab W, Liang D, Liao M, Bai X. Comprehensive Benchmark Datasets for Amharic Scene Text Detection and Recognition. Sci China Inf Sci., 2022 [pdf]",
+      "Wang H, Liao J, Cheng T, et al. Knowledge Mining with Scene Text for Fine-Grained Recognition. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2022 [pdf] [code]",
+      "Tang J, Zhang W, Liu H, et al. Few Could Be Better Than All: Feature Sampling and Grouping for Scene Text Detection. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2022 [pdf]",
+      "Liu X, Bai S, Bai X. An Empirical Study of End-to-End Temporal Action Detection. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2022 [pdf] [code]",
+      "Song S, Wan J, Yang Z, Tang J, Cheng W, Bai X, Yao C. Vision-Language Pre-Training for Boosting Scene Text Detectors. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2022 [pdf]",
+      "Xu C, Liang D, Xu Y, Bai S, Zhan W, Bai X, Tomizuka M. AutoScale: Learning to Scale for Crowd Counting. Int. Journal of Computer Vision (IJCV), 2022 [pdf] [code]",
+      "罗东亮, 蔡雨萱, 杨子豪, 章哲彦, 周瑜, & 白翔. (2022). 工业缺陷检测深度学习方法综述. Inform, 52, 1002-1039."
+    ]
+  },
+  {
+    "year": "2021",
+    "items": [
+      "Yang M, Zheng H, Bai X, Luo J. Cost-Effective Adversarial Attacks against Scene Text Recognition. International Conference on Pattern Recognition (ICPR), 2021 [pdf]",
+      "Liu Z, He Z, Wang L, et al. VisDrone-CC2021: The Vision Meets Drone Crowd Counting Challenge Results. IEEE International Conference on Computer Vision Workshop(ICCVW), 2021 [pdf] [code]",
+      "Chen C, Cai J, Hu Y, et al. Deep Interactive Video Inpainting: An Invisibility Cloak for Harry Potter. International Conference on Multimedia, 2021 [pdf]",
+      "Gao Y, Li X, Zhang J, Zhou Y, Jin D, Wang J, Zhu S, Bai X. Video Text Tracking With a Spatio-Temporal Complementary Model. IEEE Trans on Image Process (TIP), 2021 [pdf] [code]",
+      "Xu M, Zhang Z, Wei F, et al. Bootstrap Your Object Detector via Mixed Training. Neural Information Processing Systems (NeurIPS), 2021 [pdf] [code]",
+      "Liu Y, Zhu Z, Bai X. WDNet: Watermark-Decomposition Network for Visible Watermark Removal. Winter Conference on Applications of Computer Vision (WACV), 2021 [pdf] [code]",
+      "Liao M, Lyu P, He M, Yao C, Wu W, Bai X. Mask TextSpotter: An End-to-End Trainable Neural Network for Spotting Text with Arbitrary Shapes. IEEE transactions on pattern analysis and machine intelligence (TPAMI), 2021 [pdf] [code]",
+      "Cheng S, Chen X, He X, Liu Z, Bai X. PRA-Net: Point Relation-Aware Network for 3D Point Cloud Analysis. IEEE Trans on Image Process (TIP), 2021 [pdf] [code]",
+      "Xu M, Zhang Z, Hu H, et al. End-to-End Semi-Supervised Object Detection with Soft Teacher. IEEE International Conference on Computer Vision (ICCV), 2021 [pdf] [code]",
+      "Zhang W, Qiu Y, Liao M, Zhang R, Wei X, Bai X. Scene Text Detection with Scribble Lines. International Conference on Document Analysis and Recognition (ICDAR), 2021 [pdf]",
+      "Ding J, Xue N, Xia GS, et al. Object Detection in Aerial Images: A Large-Scale Benchmark and Challenges. IEEE transactions on pattern analysis and machine intelligence (TPAMI), 2021 [pdf] [code]",
+      "Zhu Z, Huang T, Xu M, Shi B, Cheng W, Bai X. Progressive and Aligned Pose Attention Transfer for Person Image Generation. IEEE transactions on pattern analysis and machine intelligence (TPAMI), 2021 [pdf] [code]",
+      "Zhou W, Wang Y, Chu J, Yang J, Bai X, Xu Y. Affinity Space Adaptation for Semantic Segmentation Across Domains. IEEE Trans on Image Process (TIP), 2021 [pdf] [code]",
+      "Liu X, Hu Y, Bai S, Ding F, Bai X, Torr PHS. Multi-shot Temporal Event Localization: a Benchmark. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2021 [pdf] [code]",
+      "Xu Y, Fu M, Wang Q, Wang Y, Chen K, Xia G, Bai X. Gliding vertex on the horizontal bounding box for multi-oriented object detection. IEEE transactions on pattern analysis and machine intelligence (TPAMI), 2021 [pdf] [code]",
+      "Lu N, Yu W, Qi X, Chen Y, Gong P, Xiao R, Bai X. MASTER: Multi-Aspect Non-local Network for Scene Text Recognition. Pattern Recognition, 2021[pdf] [code]",
+      "Xu Z, Yu X, Hong Z, Zhu Z, Han J, Liu J, Ding E, Bai X. FaceController: Controllable Attribute Editing for Face in the Wild. Association for the Advancement of Artificial Intelligence (AAAI), 2021 [pdf]",
+      "Wang J, Tang J, Yang M, Bai X, Luo J. Improving OCR-based Image Captioning by Incorporating Geometrical Relationship. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2021 [pdf]",
+      "Wang H, Bai X, Yang M, Zhu S, Wang J, Liu W. Scene Text Retrieval via Joint Text Detection and Similarity Learning. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2021 [pdf] [code]",
+      "He M, Liao M, Yang Z, et al. MOST: A Multi-Oriented Scene Text Detector with Localization Refinement. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2021 [pdf]",
+      "Xia GS, Ding J, Qian M, et al. LUAI Challenge 2021 on Learning to Understand Aerial Images. IEEE International Conference on Computer Vision Workshop(ICCVW), 2021 [pdf] [code]",
+      "Liang D, Chen X, Xu W, Zhou Y, Bai X. TransCrowd: Weakly-Supervised Crowd Counting with Transformer. Science China Information Sciences (SCIS), 2021 [pdf] [code]",
+      "Xu Y, Wang Y, Tsogkas S, Wan J, Bai X, Dickinson S, Siddiqi K. DeepFlux for Skeleton Detection in the Wild. Int. Journal of Computer Vision (IJCV), 2021 [pdf] [code]",
+      "Fang C, Bai S, Chen Q, Zhou Y, Xia L, Qin L, et al. Deep learning for predicting COVID-19 malignant progression. Medical Image Analysis, 2021 [pdf] [code]",
+      "Qi J, Gao Y, Hu Y, et al. Occluded Video Instance Segmentation: Dataset and ICCV 2021 Challenge. Neural Information Processing Systems (NeurIPS), 2021 [pdf] [code]",
+      "Bai X, Wang H, Ma L, et al. Advancing COVID-19 Diagnosis with Privacy-Preserving Collaboration in Artificial Intelligence. Nature Machine Intelligence (NMI), 2021 [pdf] [code]"
+    ]
+  },
+  {
+    "year": "2020",
+    "items": [
+      "Wang W, Xie E, Liu X, et al. Scene Text Image Super-Resolution in the Wild. European Conference on Computer Vision (ECCV), 2020 [pdf] [code]",
+      "Huang, T., Liu, Z., Chen, X., & Bai, X. (2020, August). Epnet: Enhancing point features with image semantics for 3d object detection. In European Conference on Computer Vision (ECCV) (pp. 35-52). Springer, Cham. [pdf]",
+      "Liu Z, Zhao X, Huang T, Hu R, Zhou Y, Bai X. TANet: Robust 3D Object Detection from Point Clouds with Triple Attention. Association for the Advancement of Artificial Intelligence (AAAI), 2020 [pdf] [code]",
+      "Zhang H, Yao Q, Yang M, Xu Y, Bai X. AutoSTR: Efficient Backbone Search for Scene Text Recognition. European Conference on Computer Vision (ECCV), 2020 [pdf] [code]",
+      "Yuan J, Abdul-Rashid H, Li B, et al. A comparison of methods for 3D scene shape retrieval. Computer Vision and Image Understanding, 2020 [pdf]",
+      "Wan J, Liu Y, Wei D, Bai X, Xu Y. Super-BPD: Super Boundary-to-Pixel Direction for Fast Image Segmentation. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2020 [pdf] [code]",
+      "Wang Y, Zhou W, Jiang T, Bai X, Xu Y. Intra-class feature variation distillation for semantic segmentation. European Conference on Computer Vision (ECCV), 2020 [pdf] [code]",
+      "Cheng C, Xu W, Bai X, Feng B, Liu W. Maximum Entropy Regularization and Chinese Text Recognition. International Workshop on Document Analysis System (DAS), 2020 [pdf]",
+      "Du D, Wen L, Zhu P, et al. VisDrone-CC2020: The Vision Meets Drone Crowd Counting Challenge Results. European Conference on Computer Vision Workshop (ECCVW), 2020 [pdf] [code]",
+      "Hu Q, Wang W, Bai X, Jin S, Jiang T. Blockchain Enabled Federated Slicing for 5G Networks with AI Accelerated Optimization. IEEE Network, 2020 [pdf]",
+      "Zhu Z, Xu Z, You A, Bai X. Semantically Multi-modal Image Synthesis. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2020 [pdf] [code]",
+      "Liao M, Pang G, Huang J, Hassner T, Bai X. Mask TextSpotter v3: Segmentation Proposal Network for Robust Scene Text Spotting. European Conference on Computer Vision (ECCV), 2020 [pdf] [code]",
+      "Bai X, Yang M, Huang T, Dou Z, Yu R, Xu Y. Deep-Person: Learning Discriminative Deep Features for Person Re-Identification. Pattern Recognition, 2020 [pdf] [code]",
+      "He X, Bai S, Chu J, Bai X. An Improved Multi-View Convolutional Neural Network for 3D Object Retrieval. IEEE Trans on Image Process (TIP), 2020 [pdf]",
+      "Liao M, Wan Z, Yao C, Chen K, Bai X. Real-time Scene Text Detection with Differentiable Binarization. Association for the Advancement of Artificial Intelligence (AAAI), 2020 [pdf] [code]",
+      "Liao M, Song B, Long S, He M, Yao C, Bai X. SynthText3D: Synthesizing Scene Text Images from 3D Virtual Worlds. Science China Information Sciences (SCIS), 2020 [pdf]",
+      "Tang P, Wang X, Bai S, et al. PCL: Proposal Cluster Learning for Weakly Supervised Object Detection. IEEE transactions on pattern analysis and machine intelligence (TPAMI), 2020 [pdf] [code]",
+      "Zhu A, Lu X, Bai X, Uchida S, Iwana BK, Xiong S. Few-Shot Text Style Transfer via Deep Feature Similarity. IEEE Trans on Image Process (TIP), 2020 [pdf]",
+      "Wang H, Lu P, Zhang H, et al. All You Need Is Boundary: Toward Arbitrary-Shaped Text Spotting. Association for the Advancement of Artificial Intelligence (AAAI), 2020 [pdf]",
+      "Wan Z, He M, Chen H, Bai X, Yao C. TextScanner: Reading Characters in Order for Robust Scene Text Recognition. Association for the Advancement of Artificial Intelligence (AAAI) , 2020 [pdf]"
+    ]
+  },
+  {
+    "year": "2019",
+    "items": [
+      "Cheng, C., Huang, Q., Bai, X., Feng, B., & Liu, W. (2019, September). Patch aggregator for scene text script identification. In 2019 international conference on document analysis and recognition (ICDAR) (pp. 1077-1083). IEEE. [pdf]",
+      "Huang, T., Xu, Y., Bai, S., Wang, Y., & Bai, X. (2019). Feature context learning for human parsing. Science China Information Sciences, 62(12), 1-14. [pdf]",
+      "Wang Z, Jiang J, Wu Y, Ye M, Bai X, Satoh S. Learning Sparse and Identity-Preserved Hidden Attributes for Person Re-Identification. IEEE Trans on Image Process (TIP), 2019 [pdf]",
+      "Wu, L., Zhang, C., Liu, J., Han, J., Liu, J., Ding, E., & Bai, X. (2019, October). Editing text in the wild. 27th ACM international conference on multimedia (ACM MM) (pp. 1500-1508). [pdf]",
+      "Xu, Qingquan, Xiang Bai, and Wenyu Liu. \"Multiple comparative attention network for offline handwritten chinese character recognition.\" 2019 International Conference on Document Analysis and Recognition (ICDAR). IEEE, 2019. [pdf]",
+      "Zhang, R., Zhou, Y., Jiang, Q., Song, Q., Li, N., Zhou, K., ... & Jawahar, C. V. (2019, September). Icdar 2019 robust reading challenge on reading chinese text on signboard. In 2019 international conference on document analysis and recognition (ICDAR) (pp. 1577-1581). IEEE. [pdf]",
+      "Zhu, Z., Xu, M., Bai, S., Huang, T., & Bai, X. (2019). Asymmetric non-local neural networks for semantic segmentation. IEEE/CVF International Conference on Computer Vision (ICCV) (pp. 593-602). [pdf]",
+      "He, X., Huang, T., Bai, S., & Bai, X. (2019). View n-gram network for 3d object retrieval. IEEE/CVF International Conference on Computer Vision (ICCV) (pp. 7515-7524). [pdf]",
+      "Yang, M., Guan, Y., Liao, M., He, X., Bian, K., Bai, S., ... & Bai, X. (2019). Symmetry-constrained rectification network for scene text recognition. IEEE/CVF international conference on computer vision (ICCV) (pp. 9147-9156). [pdf]",
+      "Xu, C., Qiu, K., Fu, J., Bai, S., Xu, Y., & Bai, X. (2019). Learn to scale: Generating multipolar normalized density maps for crowd counting. IEEE/CVF international conference on computer vision (ICCV) (pp. 8382-8390). [pdf]",
+      "En, Q., Duan, L., Zhang, Z., Bai, X., & Zhang, Y. (2019, July). Human-like delicate region erasing strategy for weakly supervised detection. AAAI Conference on Artificial Intelligence (Vol. 33, No. 01, pp. 3502-3509). [pdf]",
+      "Tang, J., Yang, Z., Wang, Y., Zheng, Q., Xu, Y., & Bai, X. (2019). Seglink++: Detecting dense and arbitrary-shaped scene text by instance-aware component grouping. Pattern recognition (PR), 96, 106954. [pdf]",
+      "Chen H, Wang Y, Wang G, Bai X, Qiao Y. Progressive Object Transfer Detection. IEEE Trans on Image Process (TIP), 2019 [pdf]",
+      "Xu Y, Wang Y, Zhou W, Wang Y, Yang Z, Bai X. TextField: Learning A Deep Direction Field for Irregular Scene Text Detection. IEEE Transactions on Image Processing (TIP) 2019",
+      "Liao M, Zhang J, Wan Z, et al. Scene Text Recognition from Two-Dimensional Perspective. Association for the Advancement of Artificial Intelligence (AAAI) 2019",
+      "Wang Y, Xu Y, Tsogkas S, Bai X, Dickinson S, Siddiqi K. DeepFlux for Skeletons in the Wild. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2019 [pdf] [code]",
+      "Zhu, Z., Huang, T., Shi, B., Yu, M., Wang, B., & Bai, X. (2019). Progressive pose attention transfer for person image generation. IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) (pp. 2347-2356). [pdf]",
+      "Xiao Y, Chen J, Wang Y, Cao Z, Zhou JT, Bai X. Action Recognition for Depth Video using Multi-view Dynamic Images. Information Sciences 2019",
+      "Zhu, Q., Chen, J., Shi, D., Zhu, L., Bai, X., Duan, X., & Liu, Y. (2019). Learning temporal and spatial correlations jointly: A unified framework for wind speed prediction. IEEE Transactions on Sustainable Energy, 11(1), 509-523. [pdf]",
+      "Bai, S., Zhou, Z., Wang, J., Bai, X., Latecki, L. J., & Tian, Q. (2018). Automatic ensemble diffusion for 3d shape and image retrieval. IEEE Transactions on Image Processing (TIP), 28(1), 88-101. [pdf]"
+    ]
+  },
+  {
+    "year": "2018",
+    "items": [
+      "Sun, Y., Xue, B., Zhang, M., & Yen, G. G. (2018). A particle swarm optimization-based flexible convolutional autoencoder for image classification. IEEE transactions on neural networks and learning systems (TNNLS), 30(8), 2295-2309. [pdf]",
+      "He, X., Yang, Y., Shi, B., & Bai, X. (2019). VD-SAN: Visual-densely semantic attention network for image caption generation. Neurocomputing, 328, 48-55. [pdf]",
+      "Wang, F., Xue, N., Zhang, Y., Bai, X., & Xia, G. S. (2018). Adaptively transforming graph matching. European Conference on Computer Vision (ECCV) (pp. 625-640). [pdf]",
+      "F.-D. Wang, N. Xue, Y.-P. Zhang, X. Bai, G.-S. Xia. Adaptively transforming graph matching. European Conference on Computer Vision (ECCV) , 2018.",
+      "P. Lyu, M. Liao, C. Yao, W. Wu, X. Bai. Mask textspotter: An end-to-end trainable neural network for spotting text with arbitrary shapes. European Conference on Computer Vision (ECCV) , 2018. [pdf]",
+      "R. Yu, Z. Dou, S. Bai, Z. Zhang, Y. Xu, X. Bai. Hard-aware point-to-set deep metric for person re-identification. European Conference on Computer Vision (ECCV) , 2018.",
+      "Y. Zhou, Z. Zhu, X. Bai, D. Lischinski, D. Cohen-Or, H. Huang. Non-stationary texture synthesis by adversarial expansion. ACM SIGGRAPH , 2018. [pdf]",
+      "Z. Wang, M. Ye, F. Yang, X Bai, S. Satoh. Cascaded SR-GAN for scale-adaptive low resolution person re-identification. International Joint Conference on Artificial Intelligence (IJCAI) , 2018. [pdf]",
+      "Z. Zhu, M. Liao, B. Shi, X. Bai. Feature fusion for scene text detection. IAPR International Workshop on Document Analysis System (DAS) , 2018. [pdf]",
+      "X. Wang, Y. Yan, P. Tang, X. Bai, W. Liu. Revisiting multiple instance neural networks. Pattern Recognition (PR) , 2018. [pdf]",
+      "B. Shi, X. Bai, W. Liu, J. Wang. Face alignment with deep regression. IEEE Transactions on Neural Networks and Learning Systems (TNNLS) , 2018. [pdf]",
+      "N. Xue, G. Xia, X. Bai, L. Zhang, W. Shen. Anisotropic-scale junction detection and matching for indoor images. IEEE Transactions on Image Processing (TIP) , 2018. [pdf]",
+      "S. Bai, S. Sun, X. Bai, Z. Zhang, Q. Tian. Improving context-sensitive similarity via smooth neighborhood for object retrieval Pattern Recognition (PR) , 2018.[pdf]",
+      "Xiang, T. Z., Xia, G. S., Bai, X., & Zhang, L. (2018). Image stitching by line-guided local warping with global similarity constraint. Pattern recognition (PR), 83, 481-497. [pdf]",
+      "B. Shi, M. Yang, X. Wang, P. Lyu, C. Yao, X. Bai. ASTER: An Attentional Scene Text Recognizer with Flexible Rectification. IEEE Trans. on PAMI, accepted , 2018. [code] [pdf]",
+      "P. Lyu, C. Yao, W. Wu, S. Yan, X. Bai. Multi-Oriented Scene Text Detection via Corner Localization and Region Segmentation. IEEE Conference on Computer Vision and Pattern Recognition (CVPR) , 2018. [pdf]",
+      "M. Liao, Z. Zhu, B. Shi, G. Xia, X. Bai. Rotation-Sensitive Regression for Oriented Scene Text Detection. IEEE Conference on Computer Vision and Pattern Recognition (CVPR) , 2018. [pdf]",
+      "X. He, Y. Zhou, Z. Zhou, S. Bai, X. Bai. Triplet-Center Loss for Multi-View 3D Object Retrieval. IEEE Conference on Computer Vision and Pattern Recognition (CVPR) , 2018. [pdf]",
+      "M. Liao, B. Shi, X.Bai. TextBoxes++: A Single-Shot Oriented Scene Text Detector. IEEE Transations on Image Processing (TIP) , 2018. [code][pdf]",
+      "G. Xia, X. Bai, J. Ding, Z. Zhu, S. Belongie, J. Luo, M. Datcu, M. Pelillo, L. Zhang. DOTA: A Large-scale Dataset for Object Detection in Aerial Images. IEEE Conference on Computer Vision and Pattern Recognition (CVPR) , 2018. [pdf]",
+      "B. Wu, Y. Zhou, Y. Qian, M. Gong, H. Huang.\"Full 3D Reconstruction of Transparent Objects \". ACM Trans. on Graphics. ,2018. [pdf]",
+      "S. Bai, X. Bai, Q. Tian, L. Latecki. Regularized Diffusion Process on Bidirectional Context for Object Retrieval. IEEE Trans. on PAMI, accepted , 2018. [pdf]",
+      "Y. Xu, B. Morel, S. Dahdouh, et al. \"The Challenge of Cerebral Magnetic Resonance Imaging in Neonates: A new method using mathematical morphology for the segmentation of structures including diffuse excessive high signal intensities\". Medical Image Analysis (MIA) ,2018 [pdf]",
+      "Wang Z, Bai X, Ye M, Satoh S. Incremental Deep Hidden Attribute Learning. Proceedings of the 26th ACM International Conference on Multimedia 2018",
+      "Tang P, Wang X, Bai S, et al. PCL: Proposal Cluster Learning for Weakly Supervised Object Detection. IEEE transactions on pattern analysis and machine intelligence (TPAMI) 2018",
+      "Zhou Y, Ma J, Ming A, Bai X. Learning Training Samples for Occlusion Edge Detection and Its Application in Depth Ordering Inference. International Conference on Pattern Recognition (ICPR) 2018"
+    ]
+  },
+  {
+    "year": "2017",
+    "items": [
+      "Wang, Z., Liu, C., Bai, X., & Yang, X. (2017, October). Deepcadx: Automated prostate cancer detection and diagnosis in mp-mri based on multimodal convolutional neural networks. 25th ACM international conference on Multimedia (ACM MM) (pp. 1229-1230). [pdf]",
+      "S. Bai, Z. Zhou, J. Wang, X. Bai, L.J. Latecki, Q. Tian. Ensemble diffusion for retrieval. IEEE International Conference on Computer Vision (ICCV), 2017. (oral) [code][pdf]",
+      "X. Bai, Z. Zhang, H. Wang, W. Shen. Directional edge boxes: Exploiting inner normal direction cues for effective object proposal generation. Journal of Computer Scence and Technology (JCST) , 2017. [pdf]",
+      "Skeletonization in natural images and its application to object recognition. Wei Shen, Kai Zhao, Jiang Yuan, Yan Wang, Zhijiang Zhang, Xiang Bai. Book Chapter: Skeletonization - Theory, Methods and Applications (Edited by Punam K. Saha, Gunilla Borgefors, and Gabriella Sanniti di Baja) , 2017.",
+      "Y. Liu, M.-M. Cheng, X. Hu, K. Wang, X. Bai. Richer convolutional features for edge detection. IEEE Conference on Computer Vision and Pattern Recognition (CVPR) , 2017. [pdf]",
+      "P. Tang, X. Wang, X. Bai, W. Liu. Multiple instance detection network with online instance classifier refinement. IEEE Conference on Computer Vision and Pattern Recognition (CVPR) , 2017. [pdf]",
+      "X He, B Shi, X. Bai, GS Xia, Z Zhang, W Dong. Image caption generation with part of speech guidance. Pattern Recognition Letters (PRL) , 2017. [pdf]",
+      "P. Lyu, X. Bai, C. Yao, Z. Zhu, T. Huang, W. Liu. Auto-encoder guided GAN for Chinese calligraphy synthesis. IAPR International Conference on Document Analysis and Recognition (ICDAR) , 2017. [pdf]",
+      "R. Yu, Z. Zhou, S. Bai, X. Bai. Divide and fuse: A re-ranking approach for person re-identification. British Machine Vision Conference (BMVC) , 2017. [pdf]",
+      "Y. Fang, Z. Ma, Z. Zhang, X-Y. Zhang, X. Bai. Dynamic multi-task learning with convolutional neural network. International Joint Conference on Artificial Intelligence (IJCAI) , 2017. [pdf]",
+      "W. Shen, K. Zhao, Y. Jiang, Y. Wang, X. Bai, A. Yuille. DeepSkeleton: Learning multi-task scale-associated deep side outputs for object skeleton extraction in natural images. IEEE Transactions on Image Processing (TIP) , 2017. [pdf]",
+      "G. Xia, G. Liu, X. Bai, L. Zhang. Texture characterization by using shape co-occurrence patterns. IEEE Transactions on Image Processing (TIP) , 2017. [pdf]",
+      "T. Huang, W. Dong, X. Xie, G. Shi, X. Bai. Mixed noise removal via laplacian scale mixture modeling and nonlocal low-rank approximation. IEEE Transactions on Image Processing (TIP) , 2017. [pdf]",
+      "P. Tang, X. Wang, Z. Huang, X. Bai, W. Liu. Deep patch learning for weakly supervised object classification and discovery Pattern Recognition (PR) , 2017.[pdf]",
+      "X. Bai, M. Yang, P. Lyu, Y. Xu. Integrating Scene Text and Visual Appearance for Fine-Grained Image Classification with Convolutional Neural Networks. 2017. arXiv: 1704.04613 [pdf]",
+      "Y. Xu, E. Carlinet, T. Géraud, et al. Hierarchical segmentation using tree-based shape spaces. IEEE transactions on pattern analysis and machine intelligence (TPAMI) , 2017.[pdf]",
+      "X. Liu, P. Lyu, X. Bai, M.-M. Cheng. Fusing image and segmentation cues for skeleton extraction in the wild. IEEE International Conference on Computer Vision WorkShop Challenge on Detecting Symmetry in the Wild , 2017. [pdf]",
+      "J Wu, X Bai, M Loog, F Roli, ZH Zhou. Editorial of the special Issue on multi-instance learning in pattern recognition and vision Pattern Recognition (PR) , 2017. 22 January 2017[pdf]",
+      "X. Bai, B. Shi, C. Zhang, X. Cai, L. Qi. Text/non-text image classification in the wild with convolutional neural networks Pattern Recognition (PR) , 2017.[pdf]",
+      "B. Shi, X. Bai, S. Belongie. Detecting Oriented Text in Natural Images by Linking Segments. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2017. [code][pdf]",
+      "S. Bai, X. Bai, Q. Tian. Scalable Person Re-Identification on Supervised Smoothed Manifold. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2017. [pdf]",
+      "B. Shi, X. Bai, C. Yao. An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition. IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), accepted. 2017. [code][music score recognition datasets][pdf]",
+      "M. Liao, B. Shi, X. Bai, X. Wang, W. Liu. TextBoxes: A Fast Text Detector with a Single Deep Neural Network. The 31st AAAI Conference on Artificial Intelligence (AAAI), 2017. [code][pdf]",
+      "S. Bai, X. Bai, Q. Tian, L.J. Latecki. Regularized diffusion process for visual retrieval. The 31st AAAI Conference on Artificial Intelligence (AAAI), 2017. [pdf]",
+      "S. Bai, X. Bai, L.J. Latecki, Q. Tian. Multidimensional scaling on multiple input distance matrices. The 31st AAAI Conference on Artificial Intelligence (AAAI), 2017. [pdf]",
+      "S. Bai, X. Bai, Z. Zhou, Z. Zhang, Q. Tian, L.J. Latecki. GIFT: Towards scalable 3D shape retrieval. IEEE Trans. on Multimedia, accepted. 2017. [pdf]",
+      "G. Xia, J. Hu, F. Hu, B. Shi, X. Bai, Y. Zhong, L. Zhang, X. Lu. AID: A Benchmark Dataset for Performance Evaluation of Aerial Scene Classification. IEEE Trans. on Geoscience Remote Sensing, accepted. 2017. [pdf]"
+    ]
+  },
+  {
+    "year": "2016",
+    "items": [
+      "S. Bai, S. Zhang, X. Bai, Z. Zhang, Q. Tian. Smooth neighborhood structure mining on multiple affinity graphs with applications to context-sensitive similarity. European Conference on Computer Vision (ECCV), 2016. [pdf]",
+      "Y. Zhu, C. Yao, X. Bai. Scene text detection and recognition: recent advances and future trends. Frontier of Computer Science (FCS) , 2016. (Invited Survey paper) [pdf]",
+      "Scale-Space SIFT Flow. Weichao Qiu, Xinggang Wang, Xiang Bai, Alan Yuille, Zhuowen Tu. Book Chapter: Dense Image Correspondences for Computer Vision (Edited by Tal Hassner and Ce Liu) , 2016.",
+      "W. Shen, K. Zhao, Y. Jiang, Y. Wang, Z. Zhang, X. Bai. Object skeleton extraction in natural images by fusing scale-associated deep side outputs. IEEE Conference on Computer Vision and Pattern Recognition (CVPR) , 2016. [code] [pdf]",
+      "S. Bai, X. Bai, Z. Zhou, Z. Zhang, L.J. Latecki. GIFT: A real-time and scalable 3D shape search engine. IEEE Conference on Computer Vision and Pattern Recognition (CVPR) , 2016. [code] [pdf]",
+      "C. Yao, X. Bai, N. Sang, X. Zhou, S. Zhou, Z. Cao. Scene text detection via holistic, multi-channel prediction. IEEE Conference on Computer Vision and Pattern Recognition (CVPR) , 2016. [pdf]",
+      "J. Mei, L. Dai, B. Shi, X. Bai. Scene text script identification with convolutional recurrent neural networks. International Conference on Pattern Recognition (ICPR) , 2016. [pdf]",
+      "P. Lyu, B. Shi, C. Zhang, X. Bai. Distinguishing text/non-text natural images with multi-dimensional recurrent neural networks. International Conference on Pattern Recognition (ICPR) , 2016. [pdf]",
+      "X. Zhang, Z. Zhang, C. Zhang, X. Bai. Symmetry-based object proposal for text detection. International Conference on Pattern Recognition (ICPR) , 2016. [pdf]",
+      "Y. Zhu, C. Zhang, D. Zhou, X. Wang, X. Bai, W. Liu. Traffic sign detection and recognition using fully convolutional network guided proposals. Neurocomputing , 2016. [pdf]",
+      "X. Wang, X. Duan, X. Bai. Deep sketch feature for cross-domain image retrieval. Neurocomputing , 2016. [CODE and DataSet] [pdf]",
+      "S. Bai, X. Bai, W. Liu. Multiple stage residual model for image classification and vector compression. IEEE Transactions on Multimedia (TMM) , 2016. [pdf]",
+      "S. Bai, Z. Liu, X. Bai. Co-spectral for robust shape clutersing. Pattern Recogniton Letters (PRL) , 2016. [pdf]",
+      "Z. Zhu, X. Wang, S. Bai, C. Yao, X. Bai. Deep learning representation using autoencoder for 3D shape retrieval. Neurocomputing , 2016. [pdf]",
+      "Y. Zhou, X. Bai, W. Liu, L.J. Latecki. Similarity Fusion for Visual Tracking. Int. Journal of Computer Vision (IJCV), 118 (3), 337-363, 2016. [pdf]",
+      "L. Huỳnh, Y. Xu, T. Géraud. Morphology-based hierarchical representation with application to text segmentation in natural images.Pattern Recognition (ICPR), 2016 23rd International Conference on. IEEE, 2016.[pdf]",
+      "Y. Xu, T. Géraud, L. Najman. Connected filtering on tree-based shape-spaces[J]. IEEE transactions on pattern analysis and machine intelligence (TPAMI), 2016. [pdf]",
+      "X. Bai, C. Yao, W. Liu. Strokelets: A Learned Multi-Scale Mid-Level Representation for Scene Text Recognition. IEEE Transations on Image Processing (TIP), 25(6),2789-2802, 2016. [code][pdf]",
+      "S. Bai, X. Bai. Sparse Contextual Activation for Efficient Visual Re-ranking. IEEE Trans. on Image Processing (TIP), 25(3): 1056-1069, 2016. [code][pdf]",
+      "Z. Zhang, C. Zhang, W. Shen, C. Yao, W. Liu, X. Bai. Multi-oriented text detection with fully convolutional networks. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016. [code][pdf]",
+      "B Shi, X Bai, C Yao. Script identification in the wild via discriminative convolutional neural network Pattern Recognition (PR) , 2016. 22 January 2016[pdf]",
+      "B. Shi, X. Wang, P. Lyu, C. Yao, X. Bai. Robust scene text recognition with automatic rectification. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2016. [pdf]",
+      "W Shen, X Bai, Z Hu, Z Zhang. Multiple instance subspace learning via partial random projection tree for local reflection symmetry in natural images Pattern Recognition (PR) , 2016. 22 January 2016[pdf]"
+    ]
+  },
+  {
+    "year": "2015",
+    "items": [
+      "C. Hu, X. Bai, L. Qi, X. Wang, G. Xue, L. Mei. Learning discriminative pattern for real-time car brand recognition.Transactions on Intelligent Transportation Systems (TITS), 2015. [pdf]",
+      "X. Bai, S. Bai, Z. Zhu, L.J. Latecki. 3D Shape Matching via Two Layer Coding.IEEE Transactions on Pattern Analysis and Machine Intelligence (PAMI) , 2015. [pdf]",
+      "C. Zhang, C. Yao, B. Shi, X. Bai. Automatic discrimination of text and non-text natural images.IAPR International Conference on Document Analysis and Recognition (ICDAR), 2015. (oral) [code] [dataset][pdf]",
+      "B. Shi, C. Yao, C. Zhang, X. Guo, F. Huang, X. Bai. Automatic script identification in the wild.IAPR International Conference on Document Analysis and Recognition (ICDAR), 2015. (oral) [dataset] [pdf]",
+      "Z. Zhang, W. Shen, C. Yao, X. Bai. Symmetry-based text line detection in natural scenes. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2015. [code][pdf]",
+      "X. Wang, Z. Zhu, C. Yao, X. Bai. Relaxed multiple-instance SVM with application to object discovery. IEEE International Conference on Computer Vision (ICCV), 2015. [code][pdf]",
+      "C. Hu, X. Bai, L. Qi, P. Chen, G. Xue, L. Mei. Vehicle color recognition with spatial pyramid deep learning.Transactions on Intelligent Transportation Systems (TITS), 2015. [pdf]",
+      "B. Shi, S. Bai, Z. Zhou, X. Bai. DeepPano: Deep panoramic representation for 3D shape recognition.Signal Processing Letters (SPL), 2015. [pdf]",
+      "X. Bai, S. Bai, X. Wang. Beyond diffusion process: Neighbor set similarity for fast re-ranking.Information Science (IS), 2015.[pdf]",
+      "W. Shen, X. Wang, Y. Wang, X. Bai, Z. Zhang. DeepContour: A deep convolutional feature learned by positive-sharing loss for contour detection. IEEE Conference on Computer Vision and Pattern Recognition (CVPR) , 2015. [code][pdf]",
+      "S. Bai, X. Bai, W. Liu, F. Roli. Neural shape codes for 3D model retrieval.Pattern Recognition Letters (PRL) , 2015.[pdf]"
+    ]
+  },
+  {
+    "year": "2014",
+    "items": [
+      "W. Qiu, X. Wang, X. Bai, A. Yuille, Z. Tu. Scale-space SIFT flow.IEEE Winter Conference on Applications of Computer Vision (WACV), 2014. [pdf]",
+      "W. Shen, X. Wang, C. Yao, X. Bai. Shape recognition by combining contour and skeleton into a mid-level representation.China Conference on Pattern Recognition (CCPR), 2014. [pdf]",
+      "Y. Zhou, Y. Wang, M. Yi, X. Bai, W. Liu, L.J. Latecki. Online multiple targets detection and tracking from mobile robot in cluttered indoor environments with depth camera.International Jounal of Pattern Recognition and Aritificial Intelligence (IJPRAI), 2014. [pdf]",
+      "S. Bai, X. Wang, C. Yao, X. Bai. Multiple stage residual model for accurate image classication.Asian Conference on Computer Vision (ACCV), 2014. [pdf]",
+      "S. Bai, X. Wang, X. Bai. Aggregating contour fragments for shape classification.International Conference on Image Processing (ICIP), 2014. [pdf]",
+      "X. Wang, Z. Zhang, Y. Ma, X. Bai, W. Liu, Z. Tu. Robust subspace discovery via relaxed rank minimization.Neural Computation (NC), 2014. [code][pdf]",
+      "C. Yao, X. Bai, W. Liu. A Unified Framework for Multi-Oriented Text Detection and Recognition. IEEE Transactions on Image Processing (TIP),2014. [HUST-TR400 Dataset][pdf]",
+      "P. Chen, X. Bai, W. Liu. Vehicle color recognition on urban road by feature context.IEEE Transactions on Intelligent Transportation Systems (TITS), 2014. [dataset][pdf]",
+      "X. Bai, C. Rao, X. Wang. Shape Vocabulary: A Robust and Efficient Shape Representation for Shape Matching. IEEE Transactions on Image Processing (TIP), 2014. [pdf]",
+      "W. Shen, K. Deng, X. Bai, T. Leyvand, B. Guo, Z. Tu. Exemplar-based human action pose correction.IEEE Transactions on Cybernetics (TC), 2014. [pdf]",
+      "C. Yao, X. Bai, B. Shi, W. Liu. Strokelets: A learned multi-scale representation for scene text recognition. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2014. [pdf]",
+      "Y. Xu, P. Monasse, T. Géraud, et al. Tree-based morse regions: A topological approach to local feature detection[J]. IEEE Transactions on Image Processing (ITIP), 2014.[pdf]",
+      "X. Min, Y. Zhou, S. Liu, X. Bai. Real-time object tracking via optimal feature subsapce.International Conference on Image Processing (ICIP), 2014. [pdf]",
+      "X Wang, B Feng, X Bai, W Liu, LJ Latecki. Bag of contour fragments for robust shape classification Pattern Recognition (PR) , 2014. 22 January 2014.[pdf]",
+      "Z. Zhu, X. Wang, S. Bai, C. Yao, X. Bai. Deep learning representation using autoencoder for 3D shape retrieval.International Conference on Security, Pattern Analysis, and Cybernetics (ICSPAC), 2014. [pdf]",
+      "C. Yao, X. Bai, W. Liu, L.J. Latecki. Human detection using learned part alphabet and pose dictionary. European Conference on Computer Vision (ECCV), 2014. [pdf]"
+    ]
+  },
+  {
+    "year": "2013",
+    "items": [
+      "X. Yang, X. Bai, S. Koknar-Tezel, L.J. Latecki. Densifying distance spaces for shape and image retrieval. Journal of Mathematical Imaging and Vision (JMIV) 2013 [pdf]",
+      "C. Yao, X. Zhang, X. Bai, W. Liu, Y. Ma, Z. Tu. Rotation-invariant features for multi-oriented text detection in natural images. PLoS ONE 8(8),2013 [pdf]",
+      "W. Shen, X. Bai, X. Yang, L. Latecki. Skeleton pruning as trade-off between skeleton simplicity and reconstruction error. SCIENCE CHINA Inf. Science 2013 [pdf]",
+      "W. Liu, H. Jiang, X. Bai, G. Tan, C. Wang, W. Liu, K. Cai. Distance transform-based skeleton extraction and its applications in sensor networks.IEEE Transactions on Parallel and Distributed Systems (TPDS), 2013 [pdf]",
+      "W. Shen, B. Wang, Y. Wang, X. Bai, L.J. Latecki. Face identification using reference-based features with message passing model.Neurocomputing 2013 [pdf]",
+      "Y. Zhu, X. Wang, C. Yao, X. Bai. Traffic sign classification using two-layer image representation.International Conference on Image Processing (ICIP),2013. [pdf]",
+      "X. Wang, B. Wang, X. Bai, W. Liu, Z. Tu. Max-margin multiple-instance dictionary learning. International Conference on Machine Learning (ICML), 2013. [pdf]",
+      "Shape Retrieval and Classification Based on Geodesic Paths in Skeleton Graphs. Xiang Bai, Chunyuan Li, Xingwei Yang, Longin Jan Latecki. Book Chapter: Graph-Based Methods in Computer Vision: Development and Applications (Edited by X. Bai, J. Cheng, and E. Hacock) 2013",
+      "J Ma, J Zhao, J Tian, X Bai, Z Tu. Regularized vector field learning with sparse approximation for mismatch removal Pattern Recognition (PR) , 2013. [pdf]",
+      "W Shen, Y Wang, X Bai, H Wang, L Jan Latecki. Shape clustering: common structure discovery Pattern Recognition (PR) , 2013. [code][pdf]"
+    ]
+  },
+  {
+    "year": "2012",
+    "items": [
+      "Rao, C., Yao, C., Bai, X., Qiu, W., & Liu, W. (2012, November). Online random ferns for robust visual tracking. 21st International Conference on Pattern Recognition (ICPR2012) (pp. 1447-1450). IEEE. [pdf]",
+      "Wang, Y., Wang, X., Zhu, S., Bai, X., & Liu, W. (2012, November). Adjacent coding for image classification. 21st International Conference on Pattern Recognition (ICPR2012) (pp. 1459-1462). IEEE. [pdf]",
+      "Liu, W., Jiang, H., Bai, X., Tan, G., Wang, C., Liu, W., & Cai, K. (2012, June). Skeleton extraction from incomplete boundaries in sensor networks based on distance transform. In 2012 IEEE 32nd International Conference on Distributed Computing Systems (pp. 42-51). IEEE. [pdf]",
+      "Zhou, Y., Rao, C., Lu, Q., Bai, X., & Liu, W. (2011, October). Multiple feature fusion for object tracking. In International Conference on Intelligent Science and Intelligent Data Engineering (pp. 145-152). Springer, Berlin, Heidelberg. [pdf]",
+      "X. Wang, Z. Zhang, Y. Ma, X. Bai, W. Liu, Z. Tu. One-class multiple instance learning via robust PCA for common object discovery.Proceedings of The 11th Asian Conference on Computer Vision (ACCV) , 2012.[pdf]",
+      "Y. Zhou, X. Bai, W. Liu, L.J. Latecki. Fusion with diffusion for robust visual tracking. Neural Information Processing Systems (NIPS), 2012. [pdf]",
+      "J. Wang, X. Bai, X. You, W. Liu, L.J. Latecki. Shape matching and classification using height functions. Pattern Recognition Letters (PRL) , 2012.[pdf]",
+      "C. Yao, X. Bai, W. Liu, Y Ma, Z. Tu. Detecting texts of arbitrary orientations in natural images. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2012. [MSRA-TD 500 Dataset][pdf]",
+      "X. Wang, X. Bai, T. Ma, W. Liu, L.J. Latecki. Fan shape model for object detection. IEEE Conference on Computer Vision and Pattern Recognition (CVPR) , 2012. [code][pdf]",
+      "W. Shen, K. Deng, X. Bai, T. Leyvand, B. Guo, Z. Tu. Exemplar-based human action pose correction and tagging. IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2012. [pdf]",
+      "X. Bai, B. Wang, C. Yao, W. Liu, Z. Tu. Co-transduction for shape retrieval. IEEE Transactions on Image Processing (TIP) , 2012.[pdf]",
+      "Y. Zhou, J. Liu, X. Bai,. Research and perspective on shape matching. Acta Automatica Sinica , 2012.[pdf]",
+      "Binarization of Gray-Level Images Based on Skeleton Region Growing. Xiang Bai, Quannan Li, Tianyang Ma, Wenyu Liu, Longin Jan Latecki.Springer) , 2012.[pdf]"
+    ]
+  },
+  {
+    "year": "2011",
+    "items": [
+      "Yao, C., Shen, W., Bai, X., & Liu, W. (2011, December). Class-specific object contour detection by iteratively combining context information. In 2011 8th International Conference on Information, Communications & Signal Processing (pp. 1-5). IEEE. [pdf]",
+      "Wang, J., Zhou, Y., Bai, X., & Liu, W. (2011, November). Shape matching and recognition using group-wised points. In Pacific-Rim Symposium on Image and Video Technology (pp. 393-404). Springer, Berlin, Heidelberg. [pdf]",
+      "Q. Zhou, C. Yan, Y. Zhu, X. Bai, W. Liu. Image labeling by multiple segmentation.International Conference on Image Processing (ICIP) , 2011.[pdf]",
+      "X. Wang, X. Bai, W. Liu, L.J. Latecki. Feature context for image classification and object detection. IEEE Conference on Computer Vision and Pattern Recognition (CVPR) , 2011. [pdf]",
+      "X. Wang, X. Bai, X. Yang, W. Liu, and L.J. Latecki. Maximal cliques that satisfy hard constraints with application to deformable object model learning. Neural Information Processing Systems (NIPS) , 2011. [pdf]",
+      "Learning context-sensitive similarity by shortest path propagation.Pattern Recognition (PR), 2011. [code][pdf]",
+      "J. Wang, Y. Li X. Bai, Y. Zhang, C. Wang, N. Tang. Learning context-sensitive similarity by shortest path propagation. Pattern Recognition (PR) , 2011. [pdf]",
+      "Zhou, Y., Wang, J., Zhou, Q., Bai, X., & Liu, W. (2011, August). Shape matching using points co-occurrence pattern. In 2011 Sixth International Conference on Image and Graphics (pp. 344-349). IEEE. [pdf]",
+      "Shen, W., Bai, X., Hu, R., Wang, H., & Latecki, L. J. (2011). Skeleton growing and pruning with bending potential ratio. Pattern Recognition (PR), 44(2), 196-209. [pdf]"
+    ]
+  },
+  {
+    "year": "2010",
+    "items": [
+      "X. Bai, B. Wang, X. Wang, W. Liu, Z. Tu. Co-transduction for shape retrieval. Proceedings of European Conference on Computer Vision (ECCV) , 2010.[pdf]",
+      "B. Wang, W. Shen, W. Liu, X. You, X. Bai. Shape classification using tree-unions. International Conference on Pattern Recognition (ICPR) , 2010. [pdf]",
+      "B. Wang, X. Bai, X. Wang, W. Liu, Z. Tu. Object recognition using junctions. European Conference on Computer Vision (ECCV) , 2010. [pdf]",
+      "X. Bai, X. Yang, L.Latecki, W. Liu, Z. Tu. Learning context-sensitive shape similarity by graph transduction. IEEE Transactions on Pattern Analysis and Machine Intelligence (PAMI) , 2010.[pdf]",
+      "Z. Tu, X. Bai. Auto-context and its application to high-level vision tasks and 3D brain image segmentation. IEEE Transactions on Pattern Analysis and Machine Intelligence (PAMI) , 2010.[pdf]",
+      "H. Jiang, W. Liu, D. Wang, C. Tian, X. Bai , X. Liu, Y. Wu, W. Liu. Connectivity-based skeleton extraction in wireless sensor networks. IEEE Transactions on Parallel and Distributed Systems (TPDS), 21(5): 710-72 , 2010.[pdf]",
+      "Y. Tang, X. Bai et al. Skeletonization with particle filters. International Journal of Pattern Recognition and Artificial Intelligence (IJPRAI) , 2010.[pdf]"
+    ]
+  },
+  {
+    "year": "2009",
+    "items": [
+      "X. Bai, X. Wang, L.J. Latecki, W. Liu, Z. Tu. Active skeleton for non-rigid object detection. International Conference on Computer Vision (ICCV) , 2009. [pdf]",
+      "Y. Xu, B. Wang, W. Liu, X. Bai. Skeleton graph matching based on critical points using path similarity.Asian Conference on Computer Vision (ACCV),2009[pdf]",
+      "X. Bai, W. Liu, Z. Tu. Integrating contour and skeleton for shape classification. Non-Rigid Shape Analysis and Deformable Image Alignment (NORDIA) , 2009. [DataSet] [pdf]",
+      "X. Bai, Q. Li, L.J. Latecki, W. Liu, Z. Tu. Shape band: A deformable object detection approach. IEEE Conference on Computer Vision and Pattern Recognition (CVPR) , 2009. [pdf]",
+      "H. Jiang, W. Liu, D. Wang, C. Tian, X. Bai, X. Liu, Y. Wu, W. Liu. CASE: Connectivity-based skeleton extraction in wireless sensor networks. IEEE Conference on Computer Communications (INFOCOM) , 2009. [pdf]",
+      "Wu, C., Bai, X., Li, Q., Yang, X., & Liu, W. (2009, January). Contour grouping with partial shape similarity. In Pacific-Rim Symposium on Image and Video Technology (pp. 167-178). Springer, Berlin, Heidelberg. [pdf]",
+      "Yang, X., Bai, X., Yang, X., & Zeng, L. (2009, October). An efficient quick algorithm for computing stable skeletons. In 2009 2nd International Congress on Image and Signal Processing (pp. 1-5). IEEE. [pdf]"
+    ]
+  },
+  {
+    "year": "2008",
+    "items": [
+      "Q. Li, X. Bai, W. Liu. Skeletonization of gray-scale images from incomplete boundaries.IEEE International Conference on Image Processing (ICIP), 2008[pdf]",
+      "L.J. Latecki, C. Lu, M. Sobel, X. Bai. Multiscale random fields with application to contour grouping. Neural Information Processing Syestems (NIPS) , 2008. [pdf]",
+      "X. Bai, L.J. Latecki. Path similarity skeleton graph matching. IEEE Transactions on Pattern Analysis and Machine Intelligence (PAMI) , 2008. [pdf]",
+      "X. Yang, X. Bai, L.J. Latecki, Z. Tu. Improving Shape Retrieval by Learning Graph Transduction. European Conference on Computer Vision (ECCV) , 2008. [pdf]",
+      "X. Bai, X. Yang, D.-G. Yu, L. J. Latecki. Skeleton-based shape classification using path similarity. International J. of Pattern Recognition and Artificial Intelligence (IJPRAI),2008[pdf]",
+      "X. Bai, X. Yang, L.J. Latecki. Detection and recognition of contour parts based on shape similarity. Pattern Recognition (PR) , 2008. [pdf]",
+      "Li, Q., Bai, X., & Liu, W. (2008, October). Skeletonization of gray-scale image from incomplete boundaries. In 2008 15th IEEE International Conference on Image Processing (ICIP) (pp. 877-880). IEEE. [pdf]",
+      "Yang, X., Bai, X., Yang, X., & Liu, W. (2008, May). An efficient quick thinning algorithm. In 2008 Congress on Image and Signal Processing (Vol. 3, pp. 475-478). IEEE. [pdf]",
+      "Tang, Y., Bai, X., Yang, X., Lin, L., Liu, S., & Latecki, L. J. (2010). Skeletonization with particle filters. International Journal of Pattern Recognition and Artificial Intelligence, 24(04), 619-634. [pdf]",
+      "Yang, X., Adluru, N., Latecki, L. J., Bai, X., & Pizlo, Z. (2008, December). Symmetry of shapes via self-similarity. In International symposium on visual computing (pp. 561-570). Springer, Berlin, Heidelberg. [pdf]"
+    ]
+  },
+  {
+    "year": "2007",
+    "items": [
+      "L.J. Latecki, Q. Li, X. Bai, W. Liu. Skeletonization using SSM of the distance transform.IEEE International Conference on Image Processing (ICIP), 2007[pdf]",
+      "Adluru, N., Latecki, L. J., Lakaemper, R., Young, T., Bai, X., & Gross, A. (2007, October). Contour grouping based on local symmetry. In 2007 IEEE 11th International Conference on Computer Vision (ICCV) (pp. 1-8). IEEE. [pdf]",
+      "X. Bai and L.J. Latecki. Discrete skeleton evolution. International Conference on Energy Minimization Methods in Computer Vision and Pattern Recognition (EMMCVPR),2007[pdf]",
+      "X. Yang, X. Bai, D. Yu, L.J. Latecki. Shape classification based on skeleton path similarity. International Conference on Energy Minimization Methods in Computer Vision and Pattern Recognition (EMMCVPR),2007[pdf]",
+      "H. Liu, L.J. Latecki, W. Liu, X. Bai. Visual curvature. Computer Vision and Pattern Recognition (CVPR) , 2007. [pdf]",
+      "X. Bai, L.J. Latecki, W. Liu. Skeleton pruning by contour partitioning with discrete curve evolution. IEEE Transactions on Pattern Analysis and Machine Intelligence (PAMI) , 2007. [pdf]"
+    ]
+  }
+]

@@ -19,7 +19,7 @@ type Team = CollectionEntry<'team'>;
 
 /** 团队成员角色的固定展示顺序（老站栏目顺序）。 */
 export const TEAM_ROLES = [
-  '教授',
+  '教师',
   '博后',
   '博士生',
   '硕士生',
@@ -91,12 +91,27 @@ export async function getAllNews(): Promise<News[]> {
 }
 
 /** 全部成员按角色分组，组内按 order 升序。返回顺序 = TEAM_ROLES。 */
+/**
+ * 成员自动排序（无需手动维护 order）：
+ *   1) 有 order 的排最前（仅用于置顶少数人，如 PI 白翔 order:0）；
+ *   2) 学生按入学年份 enrollYear 降序（新入学在前）；
+ *   3) 最后按姓名（localeCompare，中文按拼音/笔画近似）。
+ * 加人/删人无需再调整顺序。
+ */
+function teamComparator(a: Team, b: Team): number {
+  const ao = a.data.order ?? Infinity;
+  const bo = b.data.order ?? Infinity;
+  if (ao !== bo) return ao - bo; // 有 order 的靠前，且按 order 升序
+  const ay = a.data.enrollYear ? Number(a.data.enrollYear) : -Infinity;
+  const by = b.data.enrollYear ? Number(b.data.enrollYear) : -Infinity;
+  if (ay !== by) return by - ay; // 入学年份降序（新的在前）
+  return a.data.name.localeCompare(b.data.name, 'zh');
+}
+
 export async function getTeamByRole(): Promise<{ role: string; members: Team[] }[]> {
   const all = (await getCollection('team', notDraft)) as Team[];
   return TEAM_ROLES.map((role) => ({
     role,
-    members: all
-      .filter((m) => m.data.role === role)
-      .sort((a, b) => (a.data.order ?? 999) - (b.data.order ?? 999)),
+    members: all.filter((m) => m.data.role === role).sort(teamComparator),
   })).filter((g) => g.members.length > 0);
 }

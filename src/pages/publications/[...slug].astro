@@ -1,0 +1,102 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PageHeader from '@components/ui/PageHeader.astro';
+import { isoDate, withBase } from '@lib/utils';
+
+export async function getStaticPaths() {
+  const pubs = await getCollection('publications', (p) => !p.data.draft);
+  return pubs.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, venue, badge, thumbnail, links } = entry.data;
+
+const linkItems = [
+  { label: 'PDF', href: links.pdf },
+  { label: 'arXiv', href: links.arxiv },
+  { label: '代码 Code', href: links.code },
+  { label: '项目主页 Project', href: links.project },
+].filter((l) => l.href);
+---
+
+<BaseLayout title={title} description={venue ?? title}>
+  <PageHeader
+    title={venue ?? '研究成果'}
+    breadcrumbs={[
+      { label: '首页', href: withBase('/') },
+      { label: '研究成果', href: withBase('/publications') },
+      { label: venue ?? '论文' },
+    ]}
+  />
+
+  <article class="container-vlr py-12 md:py-16">
+    <div class="mx-auto max-w-3xl">
+      <div class="mb-4 flex flex-wrap items-center gap-2">
+        {venue && <span class="text-sm font-semibold text-navy">{venue}</span>}
+        {
+          badge && (
+            <span class="rounded-full bg-crimson/10 px-2 py-0.5 text-xs font-semibold text-crimson">
+              {badge}
+            </span>
+          )
+        }
+        <time class="text-sm text-ink-soft">{isoDate(entry.data.date)}</time>
+      </div>
+
+      <h1 class="text-2xl font-bold leading-snug text-ink">{title}</h1>
+
+      {
+        thumbnail && (
+          <div class="my-6 overflow-hidden rounded-xl border border-line bg-muted">
+            <Image src={thumbnail} alt={title} width={960} height={540} class="w-full object-contain" />
+          </div>
+        )
+      }
+
+      {
+        linkItems.length > 0 && (
+          <div class="my-6 flex flex-wrap gap-3">
+            {linkItems.map((l) => (
+              <a
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 rounded-full border border-navy px-4 py-1.5 text-sm font-medium text-navy transition-colors hover:bg-navy hover:text-white"
+              >
+                {l.label} <span aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </div>
+        )
+      }
+
+      <div class="content-body leading-relaxed text-ink">
+        <Content />
+      </div>
+
+      <div class="mt-10 border-t border-line pt-6">
+        <a
+          href={withBase('/publications')}
+          class="inline-flex items-center gap-1 text-sm font-semibold text-crimson"
+        >
+          <span aria-hidden="true">‹</span> 返回研究成果
+        </a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .content-body :global(p) {
+    margin-block: 1rem;
+  }
+  .content-body :global(a) {
+    color: var(--color-crimson);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    word-break: break-all;
+  }
+</style>

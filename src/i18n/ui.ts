@@ -106,7 +106,7 @@ export type UIKey = keyof (typeof ui)['zh'];
 
 /** 团队角色 → 英文标签（英文团队页用）。 */
 export const roleLabels: Record<string, string> = {
-  教授: 'Faculty',
+  教师: 'Faculty',
   博后: 'Postdocs',
   博士生: 'PhD Students',
   硕士生: 'Master Students',

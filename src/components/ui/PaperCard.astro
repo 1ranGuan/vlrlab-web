@@ -6,7 +6,7 @@
  */
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
-import { dateBadge } from '@lib/utils';
+import { dateBadge, withBase } from '@lib/utils';
 import SmartLink from './SmartLink.astro';
 
 interface Props {
@@ -16,8 +16,8 @@ interface Props {
 const { paper } = Astro.props;
 const { title, thumbnail, venue, badge } = paper.data;
 const { day, ym } = dateBadge(paper.data.date);
-// 详情：暂链到 /publications（子页面重建前的落点）。日后可改为 /publications/<id>。
-const href = `/publications#${paper.id}`;
+// 详情页：/publications/<id>
+const href = withBase(`/publications/${paper.id}`);
 ---
 
 <article

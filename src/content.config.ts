@@ -73,7 +73,7 @@ const team = defineCollection({
     z.object({
       name: z.string(),
       nameEn: z.string().optional(),
-      role: z.enum(['教授', '博后', '博士生', '硕士生', '毕业生', '实验室助理', '以往成员']),
+      role: z.enum(['教师', '博后', '博士生', '硕士生', '毕业生', '实验室助理', '以往成员']),
       photo: image().optional(),
       email: z.string().optional(),
       homepage: z.string().url().optional(),
