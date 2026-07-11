@@ -1,10 +1,6 @@
 ---
-import PlaceholderPage from '@components/pages/PlaceholderPage.astro';
+import TextInfoPage from '@components/pages/TextInfoPage.astro';
+import pages from '@data/legacy-pages.json';
 ---
 
-<PlaceholderPage
-  locale="en"
-  titleKey="page.recruiting.title"
-  body="We are hiring young faculty and postdocs, and recruiting PhD/master students. Full details are currently available in Chinese."
-  zhHref="/recruiting"
-/>
+<TextInfoPage locale="en" titleKey="page.recruiting.title" text={pages['info/recruiting'].text} />

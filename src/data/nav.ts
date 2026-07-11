@@ -63,7 +63,7 @@ export const nav: NavItem[] = [
   },
   { label: '开源资料', href: '/opensource' },
   { label: '教学相关', href: '/teaching' },
-  { label: '招聘招生信息', href: '/recruiting' },
+  { label: '通知公告', href: '/announcements' },
   { label: '联系我们', href: '/contact' },
 ];
 
@@ -73,17 +73,17 @@ export const nav: NavItem[] = [
  */
 import { type Locale, ui } from '@/i18n/ui';
 
-// 英文导航：key → 是否有英文页(en 路由) 或回落到中文页。
-// 新闻按需求不做英文富文本，故 news 回落中文站。
+// 英文导航：key → 对应英文页(/en/ 路由)。与中文 nav 顶层顺序一致。
+// 内容保留中文、仅界面英文；各英文页均已建。
 const NAV_KEYS = [
   { key: 'nav.home', en: '/en/' },
-  { key: 'nav.news', en: '/news' }, // 回落中文（英文不做新闻富文本）
+  { key: 'nav.news', en: '/en/news' },
   { key: 'nav.team', en: '/en/team' },
   { key: 'nav.publications', en: '/en/publications' },
   { key: 'nav.research', en: '/en/research' },
   { key: 'nav.opensource', en: '/en/opensource' },
   { key: 'nav.teaching', en: '/en/teaching' },
-  { key: 'nav.recruiting', en: '/en/recruiting' },
+  { key: 'nav.announcements', en: '/en/announcements' },
   { key: 'nav.contact', en: '/en/contact' },
 ] as const;
 

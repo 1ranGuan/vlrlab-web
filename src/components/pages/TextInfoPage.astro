@@ -1,0 +1,33 @@
+---
+/**
+ * 纯文本信息页（中英共用）：教学/招聘等以文字为主的页面。
+ * locale 决定页头/面包屑语言；正文内容保持中文原文。
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PageHeader from '@components/ui/PageHeader.astro';
+import TextPage from '@components/ui/TextPage.astro';
+import { withBase } from '@lib/utils';
+import { useTranslations, type Locale, type UIKey } from '@/i18n/ui';
+
+interface Props {
+  locale?: Locale;
+  titleKey: UIKey;
+  text: string;
+  subtitle?: string;
+}
+const { locale = 'zh', titleKey, text, subtitle } = Astro.props;
+const t = useTranslations(locale);
+const homeHref = locale === 'en' ? withBase('/en/') : withBase('/');
+const title = t(titleKey);
+---
+
+<BaseLayout title={title} description={subtitle ?? title}>
+  <PageHeader
+    title={title}
+    subtitle={subtitle}
+    breadcrumbs={[{ label: t('common.home'), href: homeHref }, { label: title }]}
+  />
+  <div class="container-vlr py-12 md:py-16">
+    <TextPage text={text} />
+  </div>
+</BaseLayout>

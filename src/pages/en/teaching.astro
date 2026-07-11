@@ -1,10 +1,6 @@
 ---
-import PlaceholderPage from '@components/pages/PlaceholderPage.astro';
+import TextInfoPage from '@components/pages/TextInfoPage.astro';
+import pages from '@data/legacy-pages.json';
 ---
 
-<PlaceholderPage
-  locale="en"
-  titleKey="page.teaching.title"
-  body="Course information is currently available in Chinese."
-  zhHref="/teaching"
-/>
+<TextInfoPage locale="en" titleKey="page.teaching.title" text={pages['info/teaching'].text} />

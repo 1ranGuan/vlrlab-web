@@ -1,0 +1,51 @@
+---
+/**
+ * 新闻列表页（中英共用）。locale 决定页头/界面语言；新闻内容与分类名保持中文。
+ * 分类筛选与详情页仅中文（内容中文），英文页也链到中文分类/详情。
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import PageHeader from '@components/ui/PageHeader.astro';
+import NewsCard from '@components/ui/NewsCard.astro';
+import { getAllNews, NEWS_CATEGORIES } from '@lib/collections';
+import { withBase } from '@lib/utils';
+import { useTranslations, type Locale } from '@/i18n/ui';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = 'zh' } = Astro.props;
+const t = useTranslations(locale);
+const homeHref = locale === 'en' ? withBase('/en/') : withBase('/');
+const allLabel = locale === 'en' ? 'All' : '全部';
+
+const news = await getAllNews();
+---
+
+<BaseLayout title={t('page.news.title')} description={t('page.news.subtitle')}>
+  <PageHeader
+    title={t('page.news.title')}
+    subtitle={t('page.news.subtitle')}
+    breadcrumbs={[{ label: t('common.home'), href: homeHref }, { label: t('page.news.title') }]}
+  />
+
+  <div class="container-vlr py-12 md:py-16">
+    <!-- 分类筛选（分类名为内容中文，链到中文分类页） -->
+    <div class="mb-8 flex flex-wrap gap-2">
+      <span class="rounded-full bg-navy px-4 py-1.5 text-sm font-medium text-white">{allLabel}</span>
+      {
+        NEWS_CATEGORIES.map((cat) => (
+          <a
+            href={withBase(`/news/${cat}`)}
+            class="rounded-full border border-line px-4 py-1.5 text-sm text-ink-soft transition-colors hover:border-navy hover:text-navy"
+          >
+            {cat}
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {news.map((item) => <NewsCard item={item} />)}
+    </div>
+  </div>
+</BaseLayout>
